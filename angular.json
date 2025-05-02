@@ -33,6 +33,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "/vrising-server-configurator-tool/",
               "budgets": [
                 {
                   "type": "initial",
@@ -89,8 +90,14 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "823d6b1c-3aab-4df6-b5d6-313769c32c32"
   }
 }
