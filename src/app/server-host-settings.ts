@@ -1,3 +1,5 @@
+import { GameDifficultyPreset } from "./game-difficulty-preset"
+
 export interface ServerHostSettings {
     Name: string,
     Description: string
@@ -15,7 +17,7 @@ export interface ServerHostSettings {
     AutoSaveInterval: number,
     CompressSaveFiles: boolean,
     GameSettingsPreset: string,
-    GameDifficultyPreset: string,
+    GameDifficultyPreset: GameDifficultyPreset,
     AdminOnlyDebugEvents: boolean,
     DisableDebugEvents: boolean,
     API: {

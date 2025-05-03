@@ -1,12 +1,61 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { CommonModule, NgFor } from '@angular/common';
+import { GameDifficultyPreset } from '../game-difficulty-preset';
 
 @Component({
   selector: 'app-servergamesettinggenerator',
   standalone: true,
-  imports: [],
+  imports: [ReactiveFormsModule, NgFor, CommonModule],
   templateUrl: './servergamesettinggenerator.component.html',
   styleUrl: './servergamesettinggenerator.component.css'
 })
-export class ServergamesettinggeneratorComponent {
 
+
+export class ServergamesettinggeneratorComponent {
+  serverForm: FormGroup;
+  difficultyOptions = Object.values(GameDifficultyPreset);
+
+  constructor(private fb: FormBuilder) {
+    this.serverForm = this.fb.group({
+      Name: ['ErwanMMV-MyVrisingServerName', Validators.required],
+      Description: ['This is an awesome description of my server'],
+      Port: [9876, [Validators.required, Validators.min(1)]],
+      QueryPort: [9877, [Validators.required, Validators.min(1)]],
+      MaxConnectedUsers: [40, Validators.required],
+      MaxConnectedAdmins: [10, Validators.required],
+      ServerFps: [30, Validators.required],
+      SaveName: ['world1', Validators.required],
+      Password: [''],
+      Secure: [true],
+      ListOnSteam: [true],
+      ListOnEOS: [true],
+      AutoSaveCount: [30, Validators.required],
+      AutoSaveInterval: [120, Validators.required],
+      CompressSaveFiles: [true],
+      GameSettingsPreset: [GameDifficultyPreset.Normal],
+      GameDifficultyPreset: ['Normal'],
+      AdminOnlyDebugEvents: [false],
+      DisableDebugEvents: [false],
+      API: this.fb.group({
+        Enabled: [true]
+      }),
+      Rcon: this.fb.group({
+        Enabled: [false],
+        Port: [25575],
+        Password: ['']
+      })
+    });
+  }
+
+  onSubmit(): void {
+    console.log("attempting to save data");
+    if (this.serverForm.valid) {
+      var formData = this.serverForm.value;
+      formData.ListOnEOS = formData.ListOnSteam;
+      alert('Saved data:\n' + JSON.stringify(formData, null, 2));
+    } else {
+      alert('Please fill in all required fields.');
+    }
+  }
 }

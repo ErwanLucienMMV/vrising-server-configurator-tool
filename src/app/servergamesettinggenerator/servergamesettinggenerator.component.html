@@ -1,1 +1,116 @@
-<p>servergamesettinggenerator works!</p>
+<form [formGroup]="serverForm" (ngSubmit)="onSubmit()" class="container mt-4 mb-4">
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label class="form-label">Server Name</label>
+        <input type="text" class="form-control" formControlName="Name">
+      </div>
+      <div class="col-md-12 mb-3">
+        <label class="form-label">Description</label>
+        <input type="textarea" class="form-control" formControlName="Description">
+      </div>
+  
+      <div class="col-md-4 mb-3">
+        <label class="form-label">Port</label>
+        <input type="number" class="form-control" formControlName="Port">
+      </div>
+      <div class="col-md-4 mb-3">
+        <label class="form-label">Query Port</label>
+        <input type="number" class="form-control" formControlName="QueryPort">
+      </div>
+      <div class="col-md-4 mb-3">
+        <label class="form-label">Server FPS</label>
+        <input type="number" class="form-control" formControlName="ServerFps">
+      </div>
+  
+      <div class="col-md-6 mb-3">
+        <label class="form-label">Max Connected Users</label>
+        <input type="number" class="form-control" formControlName="MaxConnectedUsers">
+      </div>
+      <div class="col-md-6 mb-3">
+        <label class="form-label">Max Connected Admins</label>
+        <input type="number" class="form-control" formControlName="MaxConnectedAdmins">
+      </div>
+  
+      <div class="col-md-6 mb-3">
+        <label class="form-label">Save Name</label>
+        <input type="text" class="form-control" formControlName="SaveName">
+      </div>
+      <div class="col-md-6 mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" formControlName="Password">
+      </div>
+  
+      <div class="col-md-6 mb-3">
+        <label class="form-label">Game Settings Preset</label>
+        <input type="text" class="form-control" formControlName="GameSettingsPreset">
+      </div>
+      <div class="col-md-6 mb-3">
+        <label class="form-label">Game Difficulty Preset</label>
+        <select class="form-select" formControlName="GameDifficultyPreset">
+          <option *ngFor="let diff of difficultyOptions" [value]="diff">{{ diff }}</option>
+        </select>
+      </div>
+  
+      <div class="col-md-6 mb-3">
+        <label class="form-label">Auto Save Count (the amount of last save files that will be kept)</label>
+        <input type="number" class="form-control" formControlName="AutoSaveCount">
+      </div>
+      <div class="col-md-6 mb-3">
+        <label class="form-label">Auto Save Interval (s)</label>
+        <input type="number" class="form-control" formControlName="AutoSaveInterval">
+      </div>
+  
+      <div class="col-md-6 mb-3 form-check">
+        <input class="form-check-input" type="checkbox" formControlName="Secure" id="secureCheck">
+        <label class="form-check-label" for="secureCheck">Secure Server</label>
+      </div>
+      <div class="col-md-6 mb-3 form-check">
+        <input class="form-check-input" type="checkbox" formControlName="ListOnSteam" id="steamCheck">
+        <label class="form-check-label" for="steamCheck">Public Server (Will appear in the server List)</label>
+      </div>
+      <div class="col-md-6 mb-3 form-check">
+        <input class="form-check-input" type="checkbox" formControlName="CompressSaveFiles" id="compressCheck">
+        <label class="form-check-label" for="compressCheck">Compress Save Files</label>
+      </div>
+      <div class="col-md-6 mb-3 form-check">
+        <input class="form-check-input" type="checkbox" formControlName="AdminOnlyDebugEvents" id="adminDebugCheck">
+        <label class="form-check-label" for="adminDebugCheck">Admin Only Debug Events</label>
+      </div>
+      <div class="col-md-6 mb-3 form-check">
+        <input class="form-check-input" type="checkbox" formControlName="DisableDebugEvents" id="disableDebugCheck">
+        <label class="form-check-label" for="disableDebugCheck">Disable Debug Events</label>
+      </div>
+    </div>
+  
+    <hr>
+  
+    <!-- API Group -->
+    <h5>API Settings</h5>
+    <div formGroupName="API" class="mb-3">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" formControlName="Enabled" id="apiEnabledCheck">
+        <label class="form-check-label" for="apiEnabledCheck">API Enabled</label>
+      </div>
+    </div>
+  
+    <!-- Rcon Group -->
+    <h5>Rcon Settings</h5>
+    <div formGroupName="Rcon">
+      <div class="col-md-4 mb-3 form-check">
+        <input class="form-check-input" type="checkbox" formControlName="Enabled" id="rconEnabledCheck">
+        <label class="form-check-label" for="rconEnabledCheck">Rcon Enabled</label>
+      </div>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Rcon Port</label>
+            <input type="number" class="form-control" formControlName="Port">
+        </div>
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Rcon Password (not the same as the server please)</label>
+                <input type="password" class="form-control" formControlName="Password">
+            </div>
+        </div>
+    </div>
+  
+    <button type="submit" class="btn btn-primary mt-3">Save Configuration</button>
+  </form>
