@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule, NgFor } from '@angular/common';
-import { GameDifficultyPreset } from '../game-difficulty-preset';
+import { GameDifficultyPreset, GameDifficultyOptions } from '../game-difficulty-preset';
 
 @Component({
   selector: 'app-servergamesettinggenerator',
@@ -14,7 +14,7 @@ import { GameDifficultyPreset } from '../game-difficulty-preset';
 
 export class ServergamesettinggeneratorComponent {
   serverForm: FormGroup;
-  difficultyOptions = Object.values(GameDifficultyPreset);
+  difficultyOptions = GameDifficultyOptions;
 
   constructor(private fb: FormBuilder) {
     this.serverForm = this.fb.group({
@@ -53,7 +53,7 @@ export class ServergamesettinggeneratorComponent {
     if (this.serverForm.valid) {
       var formData = this.serverForm.value;
       formData.ListOnEOS = formData.ListOnSteam;
-      alert('Saved data:\n' + JSON.stringify(formData, null, 2));
+      alert('Copy and paste this in your ServerHostSettings.json:\n' + JSON.stringify(formData, null, 2));
     } else {
       alert('Please fill in all required fields.');
     }

@@ -1,4 +1,5 @@
-<form [formGroup]="serverForm" (ngSubmit)="onSubmit()" class="container mt-4 mb-4">
+<form [formGroup]="serverForm" (ngSubmit)="onSubmit()" class="container mt-5 mb-5">
+    <h5>Gameplay and connection settings</h5>
     <div class="row">
       <div class="col-md-6 mb-3">
         <label class="form-label">Server Name</label>
@@ -30,7 +31,7 @@
         <label class="form-label">Max Connected Admins</label>
         <input type="number" class="form-control" formControlName="MaxConnectedAdmins">
       </div>
-  
+      
       <div class="col-md-6 mb-3">
         <label class="form-label">Save Name</label>
         <input type="text" class="form-control" formControlName="SaveName">
@@ -47,10 +48,9 @@
       <div class="col-md-6 mb-3">
         <label class="form-label">Game Difficulty Preset</label>
         <select class="form-select" formControlName="GameDifficultyPreset">
-          <option *ngFor="let diff of difficultyOptions" [value]="diff">{{ diff }}</option>
+          <option *ngFor="let diff of difficultyOptions" [value]="diff.value">{{ diff.label }}</option>
         </select>
       </div>
-  
       <div class="col-md-6 mb-3">
         <label class="form-label">Auto Save Count (the amount of last save files that will be kept)</label>
         <input type="number" class="form-control" formControlName="AutoSaveCount">
@@ -59,34 +59,47 @@
         <label class="form-label">Auto Save Interval (s)</label>
         <input type="number" class="form-control" formControlName="AutoSaveInterval">
       </div>
-  
-      <div class="col-md-6 mb-3 form-check">
-        <input class="form-check-input" type="checkbox" formControlName="Secure" id="secureCheck">
-        <label class="form-check-label" for="secureCheck">Secure Server</label>
-      </div>
-      <div class="col-md-6 mb-3 form-check">
-        <input class="form-check-input" type="checkbox" formControlName="ListOnSteam" id="steamCheck">
-        <label class="form-check-label" for="steamCheck">Public Server (Will appear in the server List)</label>
-      </div>
-      <div class="col-md-6 mb-3 form-check">
-        <input class="form-check-input" type="checkbox" formControlName="CompressSaveFiles" id="compressCheck">
-        <label class="form-check-label" for="compressCheck">Compress Save Files</label>
-      </div>
-      <div class="col-md-6 mb-3 form-check">
-        <input class="form-check-input" type="checkbox" formControlName="AdminOnlyDebugEvents" id="adminDebugCheck">
-        <label class="form-check-label" for="adminDebugCheck">Admin Only Debug Events</label>
-      </div>
-      <div class="col-md-6 mb-3 form-check">
-        <input class="form-check-input" type="checkbox" formControlName="DisableDebugEvents" id="disableDebugCheck">
-        <label class="form-check-label" for="disableDebugCheck">Disable Debug Events</label>
+
+      <div class="row">
+        <div class="col-md-6 mb-2">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" formControlName="Secure" id="secureCheck">
+            <label class="form-check-label" for="secureCheck">Secure Server</label>
+          </div>
+        </div>
+        <div class="col-md-6 mb-2 ps-4">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" formControlName="ListOnSteam" id="steamCheck">
+            <label class="form-check-label" for="steamCheck">Public Server (Will appear in the server List)</label>
+          </div>
+        </div>
+      
+        <div class="col-md-6 mb-2">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" formControlName="CompressSaveFiles" id="compressCheck">
+            <label class="form-check-label" for="compressCheck">Compress Save Files</label>
+          </div>
+        </div>
+        <div class="col-md-6 mb-2 ps-4">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" formControlName="AdminOnlyDebugEvents" id="adminDebugCheck">
+            <label class="form-check-label" for="adminDebugCheck">Admin Only Debug Events</label>
+          </div>
+        </div>
+      
+        <div class="col-md-6 mb-2">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" formControlName="DisableDebugEvents" id="disableDebugCheck">
+            <label class="form-check-label" for="disableDebugCheck">Disable Debug Events</label>
+          </div>
+        </div>
       </div>
     </div>
-  
     <hr>
   
     <!-- API Group -->
     <h5>API Settings</h5>
-    <div formGroupName="API" class="mb-3">
+    <div formGroupName="API" class="mb-3 w-100">
       <div class="form-check">
         <input class="form-check-input" type="checkbox" formControlName="Enabled" id="apiEnabledCheck">
         <label class="form-check-label" for="apiEnabledCheck">API Enabled</label>
@@ -95,8 +108,8 @@
   
     <!-- Rcon Group -->
     <h5>Rcon Settings</h5>
-    <div formGroupName="Rcon">
-      <div class="col-md-4 mb-3 form-check">
+    <div formGroupName="Rcon" class="w-100">
+      <div class="col-md-5 mb-3 form-check">
         <input class="form-check-input" type="checkbox" formControlName="Enabled" id="rconEnabledCheck">
         <label class="form-check-label" for="rconEnabledCheck">Rcon Enabled</label>
       </div>
@@ -112,5 +125,5 @@
         </div>
     </div>
   
-    <button type="submit" class="btn btn-primary mt-3">Save Configuration</button>
+    <button type="submit" class="btn btn-primary mt-3 mb-3">Save Configuration</button>
   </form>
