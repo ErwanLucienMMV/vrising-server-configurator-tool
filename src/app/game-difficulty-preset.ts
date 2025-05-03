@@ -1,8 +1,8 @@
 export enum GameDifficultyPreset {
     Custom = '',
-    Easy = 'Easy',
-    Normal = 'Normal',
-    Brutal = 'Brutal'
+    Easy = '0',
+    Normal = '1',
+    Brutal = '2'
 }
 
 export const GameDifficultyOptions = Object.entries(GameDifficultyPreset)
