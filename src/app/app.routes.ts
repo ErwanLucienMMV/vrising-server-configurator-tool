@@ -5,7 +5,7 @@ import { ServerhostinggeneratorComponent } from './serverhostinggenerator/server
 
 export const routes: Routes = [
     { path: 'home', component: HomepageComponent},
-    { path: 'host-setting-generator', component: ServerhostinggeneratorComponent},
-    { path: 'game-setting-generator', component: ServergamesettinggeneratorComponent},
+    { path: 'game-setting-generator', component: ServerhostinggeneratorComponent},
+    { path: 'host-setting-generator', component: ServergamesettinggeneratorComponent},
     { path: '', component: HomepageComponent}
 ];

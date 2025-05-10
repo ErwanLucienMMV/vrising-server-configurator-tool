@@ -1,1 +1,292 @@
-<p>serverhostinggenerator works!</p>
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="mt-5 mb-5">
+    <!-- Sélections (enums) -->
+    <label>Game Difficulty</label>
+    <select formControlName="GameDifficulty">
+      <option *ngFor="let opt of gameDifficultyOptions" [value]="opt.value">{{ opt.label }}</option>
+    </select>
+  
+    <label>Game Mode</label>
+    <select formControlName="GameModeType">
+      <option *ngFor="let opt of gameModeOptions" [value]="opt.value">{{ opt.label }}</option>
+    </select>
+  
+    <label>Castle Damage Mode</label>
+    <select formControlName="CastleDamageMode">
+      <option *ngFor="let opt of castleDamageModeOptions" [value]="opt.value">{{ opt.label }}</option>
+    </select>
+  
+    <label>Siege Weapon Health</label>
+    <select formControlName="SiegeWeaponHealth">
+      <option *ngFor="let opt of siegeWeaponHealthOptions" [value]="opt.value">{{ opt.label }}</option>
+    </select>
+  
+    <label>Player Damage Mode</label>
+    <select formControlName="PlayerDamageMode">
+      <option *ngFor="let opt of playerDamageModeOptions" [value]="opt.value">{{ opt.label }}</option>
+    </select>
+  
+    <label>Castle Heart Damage Mode</label>
+    <select formControlName="CastleHeartDamageMode">
+      <option *ngFor="let opt of castleHeartDamageModeOptions" [value]="opt.value">{{ opt.label }}</option>
+    </select>
+  
+    <label>PvP Protection Mode</label>
+    <select formControlName="PvPProtectionMode">
+      <option *ngFor="let opt of pvpProtectionModeOptions" [value]="opt.value">{{ opt.label }}</option>
+    </select>
+  
+    <label>Death Container Permission</label>
+    <select formControlName="DeathContainerPermission">
+      <option *ngFor="let opt of deathContainerPermissionOptions" [value]="opt.value">{{ opt.label }}</option>
+    </select>
+  
+    <label>Relic Spawn Type</label>
+    <select formControlName="RelicSpawnType">
+      <option *ngFor="let opt of relicSpawnTypeOptions" [value]="opt.value">{{ opt.label }}</option>
+    </select>
+  
+    <!-- Booléens -->
+    <label><input type="checkbox" formControlName="CanLootEnemyContainers" /> Can Loot Enemy Containers</label>
+    <label><input type="checkbox" formControlName="BloodBoundEquipment" /> Blood Bound Equipment</label>
+    <label><input type="checkbox" formControlName="TeleportBoundItems" /> Teleport Bound Items</label>
+    <label><input type="checkbox" formControlName="BatBoundItems" /> Bat Bound Items</label>
+    <label><input type="checkbox" formControlName="BatBoundShards" /> Bat Bound Shards</label>
+    <label><input type="checkbox" formControlName="AllowGlobalChat" /> Allow Global Chat</label>
+    <label><input type="checkbox" formControlName="AllWaypointsUnlocked" /> All Waypoints Unlocked</label>
+    <label><input type="checkbox" formControlName="FreeCastleRaid" /> Free Castle Raid</label>
+    <label><input type="checkbox" formControlName="FreeCastleClaim" /> Free Castle Claim</label>
+    <label><input type="checkbox" formControlName="FreeCastleDestroy" /> Free Castle Destroy</label>
+    <label><input type="checkbox" formControlName="InactivityKillEnabled" /> Inactivity Kill Enabled</label>
+    <label><input type="checkbox" formControlName="CastleRelocationEnabled" /> Castle Relocation Enabled</label>
+    <label><input type="checkbox" formControlName="AnnounceSiegeWeaponSpawn" /> Announce Siege Weapon Spawn</label>
+    <label><input type="checkbox" formControlName="ShowSiegeWeaponMapIcon" /> Show Siege Weapon Map Icon</label>
+  
+    <!-- Nombres / sliders -->
+    <label>Inactivity Kill Time Min</label>
+    <input type="number" formControlName="InactivityKillTimeMin" />
+  
+    <label>Inactivity Kill Time Max</label>
+    <input type="number" formControlName="InactivityKillTimeMax" />
+  
+    <label>Inactivity Kill Safe Time Addition</label>
+    <input type="number" formControlName="InactivityKillSafeTimeAddition" />
+  
+    <label>Inactivity Kill Timer Max Item Level</label>
+    <input type="number" formControlName="InactivityKillTimerMaxItemLevel" />
+  
+    <label>Starting Progression Level</label>
+    <input type="number" formControlName="StartingProgressionLevel" />
+  
+    <label>Disable Disconnected Dead Enabled</label>
+    <input type="checkbox" formControlName="DisableDisconnectedDeadEnabled" />
+  
+    <label>Disable Disconnected Dead Timer</label>
+    <input type="number" formControlName="DisableDisconnectedDeadTimer" />
+  
+    <label>Disconnected Sun Immunity Time</label>
+    <input type="number" formControlName="DisconnectedSunImmunityTime" />
+  
+    <label>Inventory Stacks Modifier</label>
+    <input type="number" step="0.01" formControlName="InventoryStacksModifier" />
+  
+    <label>Drop Table Modifier General</label>
+    <input type="number" step="0.01" formControlName="DropTableModifier_General" />
+  
+    <label>Drop Table Modifier Stygian Shards</label>
+    <input type="number" step="0.01" formControlName="DropTableModifier_StygianShards" />
+  
+    <label>Drop Table Modifier Missions</label>
+    <input type="number" step="0.01" formControlName="DropTableModifier_Missions" />
+  
+    <label>Material Yield Modifier Global</label>
+    <input type="number" step="0.01" formControlName="MaterialYieldModifier_Global" />
+  
+    <label>Blood Essence Yield Modifier</label>
+    <input type="number" step="0.01" formControlName="BloodEssenceYieldModifier" />
+  
+    <label>PvP Vampire Respawn Modifier</label>
+    <input type="number" step="0.01" formControlName="PvPVampireRespawnModifier" />
+  
+    <label>Clan Size</label>
+    <input type="number" formControlName="ClanSize" />
+  
+    <label>Blood Drain Modifier</label>
+    <input type="number" step="0.01" formControlName="BloodDrainModifier" />
+  
+    <label>Durability Drain Modifier</label>
+    <input type="number" step="0.01" formControlName="DurabilityDrainModifier" />
+  
+    <label>Garlic Area Strength Modifier</label>
+    <input type="number" step="0.01" formControlName="GarlicAreaStrengthModifier" />
+  
+    <label>Holy Area Strength Modifier</label>
+    <input type="number" step="0.01" formControlName="HolyAreaStrengthModifier" />
+  
+    <label>Silver Strength Modifier</label>
+    <input type="number" step="0.01" formControlName="SilverStrengthModifier" />
+  
+    <label>Sun Damage Modifier</label>
+    <input type="number" step="0.01" formControlName="SunDamageModifier" />
+  
+    <label>Castle Decay Rate Modifier</label>
+    <input type="number" step="0.01" formControlName="CastleDecayRateModifier" />
+  
+    <label>Castle Blood Essence Drain Modifier</label>
+    <input type="number" step="0.01" formControlName="CastleBloodEssenceDrainModifier" />
+  
+    <label>Castle Siege Timer</label>
+    <input type="number" formControlName="CastleSiegeTimer" />
+  
+    <label>Castle Under Attack Timer</label>
+    <input type="number" formControlName="CastleUnderAttackTimer" />
+  
+    <label>Castle Raid Timer</label>
+    <input type="number" formControlName="CastleRaidTimer" />
+  
+    <label>Castle Raid Protection Time</label>
+    <input type="number" formControlName="CastleRaidProtectionTime" />
+  
+    <label>Castle Exposed Free Claim Timer</label>
+    <input type="number" formControlName="CastleExposedFreeClaimTimer" />
+  
+    <label>Castle Relocation Cooldown</label>
+    <input type="number" formControlName="CastleRelocationCooldown" />
+  
+    <label>Build Cost Modifier</label>
+    <input type="number" step="0.01" formControlName="BuildCostModifier" />
+  
+    <label>Recipe Cost Modifier</label>
+    <input type="number" step="0.01" formControlName="RecipeCostModifier" />
+  
+    <label>Craft Rate Modifier</label>
+    <input type="number" step="0.01" formControlName="CraftRateModifier" />
+  
+    <label>Research Cost Modifier</label>
+    <input type="number" step="0.01" formControlName="ResearchCostModifier" />
+  
+    <label>Refinement Cost Modifier</label>
+    <input type="number" step="0.01" formControlName="RefinementCostModifier" />
+  
+    <label>Refinement Rate Modifier</label>
+    <input type="number" step="0.01" formControlName="RefinementRateModifier" />
+  
+    <label>Research Time Modifier</label>
+    <input type="number" step="0.01" formControlName="ResearchTimeModifier" />
+  
+    <label>Dismantle Resource Modifier</label>
+    <input type="number" step="0.01" formControlName="DismantleResourceModifier" />
+  
+    <label>Servant Convert Rate Modifier</label>
+    <input type="number" step="0.01" formControlName="ServantConvertRateModifier" />
+  
+    <label>Repair Cost Modifier</label>
+    <input type="number" step="0.01" formControlName="RepairCostModifier" />
+  
+    <label>Death Durability Factor Loss</label>
+    <input type="number" step="0.01" formControlName="Death_DurabilityFactorLoss" />
+  
+    <label>Death Durability Loss Factor As Resources</label>
+    <input type="number" step="0.01" formControlName="Death_DurabilityLossFactorAsResources" />
+  
+    <label>Starter Equipment Id</label>
+    <input type="number" formControlName="StarterEquipmentId" />
+  
+    <label>Starter Resources Id</label>
+    <input type="number" formControlName="StarterResourcesId" />
+  
+    <label>SoulShard Durability Loss Rate</label>
+    <input type="number" step="0.01" formControlName="SoulShard_DurabilityLossRate" />
+
+    <div formGroupName="GameTimeModifiers" class="mb-4">
+      <h5>Game Time Modifiers</h5>
+      <div class="row">
+        <div class="col-md-6 mb-3" *ngFor="let key of ['DayDurationInSeconds','DayStartHour','DayStartMinute','DayEndHour','DayEndMinute','BloodMoonFrequency_Min','BloodMoonFrequency_Max','BloodMoonBuff']">
+          <label class="form-label">{{ key }}</label>
+          <input type="number" class="form-control" [formControlName]="key" />
+        </div>
+      </div>
+    </div>
+    
+    <div formGroupName="VampireStatModifiers" class="mb-4">
+      <h5>Vampire Stat Modifiers</h5>
+      <div class="row">
+        <div class="col-md-6 mb-3" *ngFor="let key of ['MaxHealthModifier','PhysicalPowerModifier','SpellPowerModifier','ResourcePowerModifier','SiegePowerModifier','DamageReceivedModifier','ReviveCancelDelay']">
+          <label class="form-label">{{ key }}</label>
+          <input type="number" class="form-control" [formControlName]="key" />
+        </div>
+      </div>
+    </div>
+    
+    <div formGroupName="UnitStatModifiers_Global" class="mb-4">
+      <h5>Unit Stat Modifiers - Global</h5>
+      <div class="row">
+        <div class="col-md-6 mb-3" *ngFor="let key of ['MaxHealthModifier','PowerModifier','LevelIncrease']">
+          <label class="form-label">{{ key }}</label>
+          <input type="number" class="form-control" [formControlName]="key" />
+        </div>
+      </div>
+    </div>
+    
+    <div formGroupName="UnitStatModifiers_VBlood" class="mb-4">
+      <h5>Unit Stat Modifiers - VBlood</h5>
+      <div class="row">
+        <div class="col-md-6 mb-3" *ngFor="let key of ['MaxHealthModifier','PowerModifier','LevelIncrease']">
+          <label class="form-label">{{ key }}</label>
+          <input type="number" class="form-control" [formControlName]="key" />
+        </div>
+      </div>
+    </div>
+    
+    <div formGroupName="EquipmentStatModifiers_Global" class="mb-4">
+      <h5>Equipment Stat Modifiers - Global</h5>
+      <div class="row">
+        <div class="col-md-6 mb-3" *ngFor="let key of ['MaxHealthModifier','ResourceYieldModifier','PhysicalPowerModifier','SpellPowerModifier','SiegePowerModifier','MovementSpeedModifier']">
+          <label class="form-label">{{ key }}</label>
+          <input type="number" class="form-control" [formControlName]="key" />
+        </div>
+      </div>
+    </div>
+    
+    <div formGroupName="TraderModifiers" class="mb-4">
+      <h5>Trader Modifiers</h5>
+      <div class="row">
+        <div class="col-md-6 mb-3" *ngFor="let key of ['StockModifier','PriceModifier','RestockTimerModifier']">
+          <label class="form-label">{{ key }}</label>
+          <input type="number" class="form-control" [formControlName]="key" />
+        </div>
+      </div>
+    </div>
+    
+    <div formGroupName="UnlockedAchievements" class="mb-4">
+      <label for="unlockedAchievements">Unlocked Achievements</label>
+      <div *ngFor="let achievement of unlockedAchievementsOptions; let i = index">
+        <input 
+          type="checkbox" 
+          id="{{achievement.label}}" 
+          [value]="achievement.value" 
+          [formControl]="getControl(i)"> <!-- Utilisation de la méthode getControl -->
+        <label for="{{achievement.label}}">{{achievement.label}}</label>
+      </div>
+    </div>
+    
+    <div formArrayName="UnlockedResearchs" class="mb-4">
+      <h5>Unlocked Research</h5>
+      <div *ngFor="let option of unlockedResearchOptions; let i = index" class="form-check">
+        <input 
+          type="checkbox" 
+          [formControlName]="i" 
+          class="form-check-input" 
+          [id]="'research-' + option.key" />
+        <label class="form-check-label" [for]="'research-' + option.key">
+          {{ option.label }}
+        </label>
+      </div>
+    </div>
+    
+    <div formGroupName="VBloodUnitSettings" class="mb-4">
+      <h5>VBlood Unit Settings</h5>
+        <p>Vblood Unit Settings aren't handled so far, please refer to the <a href="https://cdn.discordapp.com/attachments/976404273015431168/1364602638120779796/VRising_Server_Game_Settings_1.1.1.pdf?ex=6820057e&is=681eb3fe&hm=aed7778e085be25263ee144844fc760bea09145f293dbfc714e4a1ffec0e0bb3&https://cdn.discordapp.com/attachments/976404273015431168/1364602638120779796/VRising_Server_Game_Settings_1.1.1.pdf?ex=6820057e&is=681eb3fe&hm=aed7778e085be25263ee144844fc760bea09145f293dbfc714e4a1ffec0e0bb3&">Vrising Server Game Settings PDF</a> for more informations on how to customize a specific Vblood</p>
+    </div>
+  
+    <button type="submit">Save Settings</button>
+  </form>
