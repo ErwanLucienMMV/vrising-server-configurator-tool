@@ -234,24 +234,8 @@
     Research3 = -1262194203
   }
   
-  export const UnlockedResearchOptions = [
-    {
-      label: 'Research1', // Affiché
-      key: UnlockedResearch.Research1, // Valeur numérique
-      value: false // Initialement décoché
-    },
-    {
-      label: 'Research2', // Affiché
-      key: UnlockedResearch.Research2, // Valeur numérique
-      value: false // Initialement décoché
-    },
-    {
-      label: 'Research3', // Affiché
-      key: UnlockedResearch.Research3, // Valeur numérique
-      value: false // Initialement décoché
-    }
-    // Ne pas inclure les éléments comme -495424062 ou -1292809886 ici
-  ];
+  export const UnlockedResearchOptions = Object.entries(UnlockedResearch)
+  .filter(([key]) => isNaN(Number(key))).map(([label, value]) => ({ label, value }));
   
   export interface WarEventGameSettings {
     Interval: number;

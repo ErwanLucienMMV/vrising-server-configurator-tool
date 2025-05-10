@@ -26,6 +26,7 @@ import {
   UnlockedAchievementsOptions,
   UnlockedResearch,
   UnlockedResearchOptions,
+  UnlockedAchievements,
  } from '../gamesettingsinterfaces';
 
 @Component({
@@ -237,9 +238,23 @@ export class ServerhostinggeneratorComponent {
     return this.unlockedAchievementsControl.at(index) as FormControl;
   }
 
+  appendResults(optionsValue: {label: string;value: string|UnlockedAchievements|UnlockedResearch}[], ArrayOfStatus:boolean [] ){
+    var result: (string | UnlockedAchievements | UnlockedResearch)[] = [];
+    var i = 0
+    ArrayOfStatus.forEach((value) =>
+    {
+      if (value == true){
+        result.push(optionsValue[i].value)
+      }
+      i+=1
+    }
+    )
+    return result;
+  }
+
   onSubmit(): void {
-    console.log(JSON.stringify(this.siegeWeaponHealthOptions));
     if (this.form.valid) {
+      this.form.value.UnlockedAchievements = this.appendResults(this.unlockedAchievementsOptions,this.form.value.UnlockedAchievements);
       alert('Copy and paste this in your ServerGameSettings.json:\n' + JSON.stringify(this.form.value, null, 2));
     }
   }
