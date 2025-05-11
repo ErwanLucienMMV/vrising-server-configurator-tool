@@ -27,6 +27,10 @@ import {
   UnlockedResearch,
   UnlockedResearchOptions,
   UnlockedAchievements,
+  warEventDurationOptions,
+  warEventIntervalOptions,
+  WarEventInterval,
+  WarEventDuration,
  } from '../gamesettingsinterfaces';
 
 @Component({
@@ -50,28 +54,30 @@ export class ServerhostinggeneratorComponent {
   relicSpawnTypeOptions = RelicSpawnTypeOptions;
   unlockedAchievementsOptions = UnlockedAchievementsOptions;
   unlockedResearchOptions = UnlockedResearchOptions;
+  warEventIntervalOptions = warEventIntervalOptions;
+  warEventDurationOptions = warEventDurationOptions;
 
   constructor(private fb: FormBuilder) {
   }
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      GameDifficulty: [''],
-      GameModeType: [''],
-      CastleDamageMode: [''],
-      SiegeWeaponHealth: [''],
-      PlayerDamageMode: [''],
-      CastleHeartDamageMode: [''],
-      PvPProtectionMode: [''],
-      DeathContainerPermission: [''],
-      RelicSpawnType: [''],
+      GameDifficulty: [0],
+      GameModeType: [0],
+      CastleDamageMode: [0],
+      SiegeWeaponHealth: [2],
+      PlayerDamageMode: [1],
+      CastleHeartDamageMode: [0],
+      PvPProtectionMode: [3],
+      DeathContainerPermission: [2],
+      RelicSpawnType: [1],
       SoulShard_DurabilityLossRate: [1],
-      CanLootEnemyContainers: [false],
-      BloodBoundEquipment: [false],
-      TeleportBoundItems: [false],
+      CanLootEnemyContainers: [true],
+      BloodBoundEquipment: [true],
+      TeleportBoundItems: [true],
       BatBoundItems: [false],
       BatBoundShards: [false],
-      AllowGlobalChat: [false],
+      AllowGlobalChat: [true],
       AllWaypointsUnlocked: [false],
       FreeCastleRaid: [false],
       FreeCastleClaim: [false],
@@ -103,15 +109,15 @@ export class ServerhostinggeneratorComponent {
       SunDamageModifier: [1],
       CastleDecayRateModifier: [1],
       CastleBloodEssenceDrainModifier: [1],
-      CastleSiegeTimer: [60],
-      CastleUnderAttackTimer: [0],
+      CastleSiegeTimer: [420],
+      CastleUnderAttackTimer: [300],
       CastleRaidTimer: [60],
-      CastleRaidProtectionTime: [0],
+      CastleRaidProtectionTime: [600],
       CastleExposedFreeClaimTimer: [0],
-      CastleRelocationCooldown: [0],
-      CastleRelocationEnabled: [false],
-      AnnounceSiegeWeaponSpawn: [false],
-      ShowSiegeWeaponMapIcon: [false],
+      CastleRelocationCooldown: [60],
+      CastleRelocationEnabled: [true],
+      AnnounceSiegeWeaponSpawn: [true],
+      ShowSiegeWeaponMapIcon: [true],
       BuildCostModifier: [1],
       RecipeCostModifier: [1],
       CraftRateModifier: [1],
@@ -133,9 +139,7 @@ export class ServerhostinggeneratorComponent {
         )
       ),
       UnlockedResearchs: this.fb.array(
-        this.unlockedResearchOptions.map(option => 
-          new FormControl(option.value)  
-        )
+        this.unlockedResearchOptions.map(() => new FormControl(false))
       ), 
       GameTimeModifiers: this.fb.group({
         DayDurationInSeconds: [1080.0],
@@ -215,14 +219,74 @@ export class ServerhostinggeneratorComponent {
         ArenaStationLimit: [5],
         RoutingStationLimit: [10]
       }),
-      PlayerInteractionSettings: [''],
+      PlayerInteractionSettings: this.fb.group({
+        TimeZone: ['Local'],
+        VSPlayerWeekdayTime: this.fb.group({
+          StartHour: [0],
+          StartMinute: [0],
+          EndHour: [23],
+          EndMinute: [59]
+        }),
+        VSPlayerWeekendTime: this.fb.group({
+          StartHour: [0],
+          StartMinute: [0],
+          EndHour: [23],
+          EndMinute: [59]
+        }),
+        VSCastleWeekdayTime: this.fb.group({
+          StartHour: [0],
+          StartMinute: [0],
+          EndHour: [23],
+          EndMinute: [59]
+        }),
+        VSCastleWeekendTime: this.fb.group({
+          StartHour: [0],
+          StartMinute: [0],
+          EndHour: [23],
+          EndMinute: [59]
+        }),
+      }),
       TraderModifiers: this.fb.group({
         StockModifier: [1.0],
         PriceModifier: [1.0],
         RestockTimerModifier: [1.0]
       }),
-      WarEventGameSettings: ['']
+      WarEventGameSettings: this.fb.group({
+        Interval: [WarEventInterval.Minimum],
+        MajorDuration: [WarEventDuration.Minimum],
+        MinorDuration: [WarEventDuration.Minimum],
+        WeekdayTime: this.fb.group({
+          StartHour: [0],
+          StartMinute: [0],
+          EndHour: [23],
+          EndMinute: [59]
+        }),
+        WeekendTime: this.fb.group({
+          StartHour: [0],
+          StartMinute: [0],
+          EndHour: [23],
+          EndMinute: [59]
+        }),
+        ScalingPlayers1: this.fb.group({
+          PointsModifier: [1.0],
+          DropModifier: [1.0]
+        }),
+        ScalingPlayers2: this.fb.group({
+          PointsModifier: [1.0],
+          DropModifier: [1.0]
+        }),
+        ScalingPlayers3: this.fb.group({
+          PointsModifier: [1.0],
+          DropModifier: [1.0]
+        }),
+        ScalingPlayers4: this.fb.group({
+          PointsModifier: [1.0],
+          DropModifier: [1.0]
+        })
+      })
     });
+
+ 
   }
 
   get unlockedAchievementsControl() {
@@ -253,8 +317,11 @@ export class ServerhostinggeneratorComponent {
   }
 
   onSubmit(): void {
+    console.log(this.form.value);
+    this.form.value.UnlockedAchievements = this.appendResults(this.unlockedAchievementsOptions,this.form.value.UnlockedAchievements);
+    this.form.value.UnlockedResearch = this.appendResults(this.unlockedResearchOptions, this.form.value.UnlockedResearchs); 
+    console.log(JSON.stringify(this.form.value, null, 2))
     if (this.form.valid) {
-      this.form.value.UnlockedAchievements = this.appendResults(this.unlockedAchievementsOptions,this.form.value.UnlockedAchievements);
       alert('Copy and paste this in your ServerGameSettings.json:\n' + JSON.stringify(this.form.value, null, 2));
     }
   }

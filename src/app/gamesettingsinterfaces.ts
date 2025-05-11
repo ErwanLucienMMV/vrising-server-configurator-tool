@@ -238,8 +238,8 @@
   .filter(([key]) => isNaN(Number(key))).map(([label, value]) => ({ label, value }));
   
   export interface WarEventGameSettings {
-    Interval: number;
-    MajorDuration: number;
+    Interval: WarEventInterval;
+    MajorDuration: WarEventDuration;
     MinorDuration: number;
     WeekdayTime: TimeRange;
     WeekendTime: TimeRange;
@@ -249,6 +249,30 @@
     ScalingPlayers4: WarEventScaling;
   }
 
+  export enum WarEventInterval{
+    Minimum= '30min',
+    VeryShort = '1 hour',
+    Short = '1 hour 30 minutes',
+    Medium = '2 hours',
+    Long = '4 hours',
+    VeryLong = '8 hours',
+    Extensive = '12 hours',
+    Maximum = '24 hours'
+  }
+
+  export enum WarEventDuration{
+    Minimum= '15 minutes',
+    VeryShort = '20 minutes',
+    Short = '25 minutes',
+    Medium = '30 minutes',
+    Long = '35 minutes',
+    VeryLong = '45 minutes',
+    Extensive = '1 hour',
+    Maximum = '2 hours'
+  }
+
+  export const warEventIntervalOptions = Object.entries(WarEventInterval).map(([key, value]) => ({ label: key, value }));
+  export const warEventDurationOptions = Object.entries(WarEventDuration).map(([key, value]) => ({ label: key, value }));
   
   
   export interface GameSettings {
