@@ -227,7 +227,7 @@
     <h5>Starting Progression Level</h5>
     <label> Defines which level new
       connected players start
-      at (progression wise),</label>
+      at (progression wise), meaning that their level will be (Start Progression Level + Equipement level)</label>
     <input
       type="number"
       formControlName="StartingProgressionLevel"
@@ -253,6 +253,7 @@
 
     <div class="col-md-6">
     <h5>Inventory Stacks Modifier</h5>
+    <label>Ratio of how much every slot can contain BaseNumber * StacksModifier</label>
     <input
       type="number"
       step="0.01"
@@ -260,6 +261,7 @@
       min="0.25"
       max="3" class="form-control"
     />
+    <label>Value: From 0.25 to 3</label>
   </div>
 
     <div class="col-md-6">

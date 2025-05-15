@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, FormControlName, ReactiveFormsModule, FormControl, FormArray } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControlName, ReactiveFormsModule, FormControl, FormArray, Validators } from '@angular/forms';
 import { NgFor, NgForOf } from '@angular/common';
 import {
   GameDifficultyChoices,
@@ -67,7 +67,6 @@ export class ServerhostinggeneratorComponent {
   }
 
   ngOnInit(): void {
-    console.log(JSON.stringify(this.starterEquipementIdOptions));
     this.form = this.fb.group({
       GameDifficulty: [0],
       GameModeType: ["PvP"],
@@ -91,9 +90,9 @@ export class ServerhostinggeneratorComponent {
       FreeCastleDestroy: [false],
       InactivityKillEnabled: [false],
       InactivityKillTimeMin: [3600],
-      InactivityKillTimeMax: [604800],
+      InactivityKillTimeMax: [604800], 
       InactivityKillSafeTimeAddition: [0],
-      InactivityKillTimerMaxItemLevel: [84],
+      InactivityKillTimerMaxItemLevel: new FormControl(84, [Validators.min(0), Validators.max(255)]), //Start putting validators from here
       StartingProgressionLevel: [0],
       DisableDisconnectedDeadEnabled: [false],
       DisableDisconnectedDeadTimer: [0],
@@ -324,12 +323,42 @@ export class ServerhostinggeneratorComponent {
   }
 
   onSubmit(): void {
-    console.log(this.form.value);
     this.form.value.UnlockedAchievements = this.appendResults(this.unlockedAchievementsOptions,this.form.value.UnlockedAchievements);
     this.form.value.UnlockedResearch = this.appendResults(this.unlockedResearchOptions, this.form.value.UnlockedResearchs); 
-    console.log(JSON.stringify(this.form.value, null, 2))
     if (this.form.valid) {
       alert('Copy and paste this in your ServerGameSettings.json:\n' + JSON.stringify(this.form.value, null, 2));
+    }
+    else {
+      const errors: string[] = [];
+  
+      Object.keys(this.form.controls).forEach(key => {
+        const control = this.form.get(key);
+        if (control && control.invalid) {
+          const controlErrors = control.errors;
+          if (controlErrors) {
+            Object.keys(controlErrors).forEach(errorKey => {
+              switch (errorKey) {
+                case 'required':
+                  errors.push(`${key} is required.`);
+                  break;
+                case 'min':
+                  errors.push(`${key} is below the minimal value (${controlErrors['min'].min}).`);
+                  break;
+                case 'max':
+                  errors.push(`${key} is greater than the max value (${controlErrors['max'].max}).`);
+                  break;
+                case 'pattern':
+                  errors.push(`${key} is not fitting the format.`);
+                  break;
+                default:
+                  errors.push(`${key} have an error of type "${errorKey}".`);
+              }
+            });
+          }
+        }
+      });
+  
+      alert('The form contains errors :\n' + errors.join('\n'));
     }
   }
 }
