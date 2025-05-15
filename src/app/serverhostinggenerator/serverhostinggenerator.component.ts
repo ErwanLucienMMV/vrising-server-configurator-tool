@@ -31,12 +31,16 @@ import {
   warEventIntervalOptions,
   WarEventInterval,
   WarEventDuration,
+  StarterEquipmentId,
+  StarterEquipmentIdOptions,
+  StarterResourceIdOptions,
  } from '../gamesettingsinterfaces';
+ import { NgSelectModule } from '@ng-select/ng-select';
 
 @Component({
   selector: 'app-serverhostinggenerator',
   standalone: true,
-  imports: [ReactiveFormsModule, NgFor, NgForOf],
+  imports: [ReactiveFormsModule, NgFor, NgForOf, NgSelectModule],
   templateUrl: './serverhostinggenerator.component.html',
   styleUrl: './serverhostinggenerator.component.css'
 })
@@ -56,14 +60,17 @@ export class ServerhostinggeneratorComponent {
   unlockedResearchOptions = UnlockedResearchOptions;
   warEventIntervalOptions = warEventIntervalOptions;
   warEventDurationOptions = warEventDurationOptions;
+  starterEquipementIdOptions = StarterEquipmentIdOptions;
+  starterResourceIdOptions = StarterResourceIdOptions;
 
   constructor(private fb: FormBuilder) {
   }
 
   ngOnInit(): void {
+    console.log(JSON.stringify(this.starterEquipementIdOptions));
     this.form = this.fb.group({
       GameDifficulty: [0],
-      GameModeType: [0],
+      GameModeType: ["PvP"],
       CastleDamageMode: [0],
       SiegeWeaponHealth: [2],
       PlayerDamageMode: [1],
@@ -86,7 +93,7 @@ export class ServerhostinggeneratorComponent {
       InactivityKillTimeMin: [3600],
       InactivityKillTimeMax: [604800],
       InactivityKillSafeTimeAddition: [0],
-      InactivityKillTimerMaxItemLevel: [0],
+      InactivityKillTimerMaxItemLevel: [84],
       StartingProgressionLevel: [0],
       DisableDisconnectedDeadEnabled: [false],
       DisableDisconnectedDeadTimer: [0],
@@ -139,7 +146,7 @@ export class ServerhostinggeneratorComponent {
         )
       ),
       UnlockedResearchs: this.fb.array(
-        this.unlockedResearchOptions.map(() => new FormControl(false))
+        this.unlockedResearchOptions.map(() => new FormControl(false)) 
       ), 
       GameTimeModifiers: this.fb.group({
         DayDurationInSeconds: [1080.0],

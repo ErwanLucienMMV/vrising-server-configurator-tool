@@ -1,96 +1,205 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()" class="container mt-5 mb-5">
-    <!-- Sélections (enums) -->
-    <div class="row">
+
+
+  <div class="row justify-content-center align-items-stretch mt-3">
     <div class="col-md-6 mb-3">
-    <h5>Game Difficulty</h5>
-    <label class="mt-1">Relaxed is the "Easy" version and Hard is the name for "Brutal", in brutal VBlood will be stronger and have some more attacks patterns</label>
-    <select formControlName="GameDifficulty" class="form-control">
-      <option *ngFor="let opt of gameDifficultyOptions" [value]="opt.value">{{ opt.label }}</option>
-    </select>
+      <div class="d-flex flex-column h-100">
+        <h5>Game Difficulty</h5>
+        <label class="form-text mb-2">
+          Relaxed is the "Easy" version and Hard is the name for "Brutal", in
+          brutal VBlood will be stronger and have some more attacks patterns
+        </label>
+        <select formControlName="GameDifficulty" class="form-control mt-auto">
+          <option *ngFor="let opt of gameDifficultyOptions" [value]="opt.value">
+            {{ opt.label }}
+          </option>
+        </select>
+      </div>
+    </div>
+  
+    <div class="col-md-6 mb-3">
+      <div class="d-flex flex-column h-100">
+        <h5>Game Mode</h5>
+        <label class="form-text mb-2">
+          Decide if you can hit others players (PvP) or not (PvE)
+        </label>
+        <select formControlName="GameModeType" class="form-control mt-auto">
+          <option *ngFor="let opt of gameModeOptions" [value]="opt.value">
+            {{ opt.label }}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div  class="row">
+    <div class="col-md-6 mb-3">
+      <h5>Castle Damage Mode</h5>
+      <label class="mt-1"
+        >Decide if raid are 24/7, limited to a period of time, or not a thing at
+        all
+      </label>
+      <select formControlName="CastleDamageMode" class="form-control">
+        <option
+          class="col-md-12"
+          *ngFor="let opt of castleDamageModeOptions"
+          [value]="opt.value"
+        >
+          {{ opt.label }}
+        </option>
+      </select>
     </div>
 
     <div class="col-md-6 mb-3">
-    <h5>Game Mode</h5>
-    <label class="mt-1">Decide if you can hit others players (PvP) or not (PvE)</label>
-    <select formControlName="GameModeType" class="form-control">
-      <option *ngFor="let opt of gameModeOptions" [value]="opt.value">{{ opt.label }}</option>
-    </select>
+      <h5>Siege Weapon Health</h5>
+      <label class="mt-1"
+        >Define the HPs of siege golem, default being Normal</label
+      >
+      <select formControlName="SiegeWeaponHealth" class="form-control">
+        <option
+          *ngFor="let opt of siegeWeaponHealthOptions"
+          [value]="opt.value"
+        >
+          {{ opt.label }}
+        </option>
+      </select>
     </div>
 
     <div class="col-md-6 mb-3">
-    <h5>Castle Damage Mode</h5>
-    <label class="mt-1">Decide if raid are 24/7, limited to a period of time, or not a thing at all </label>
-    <select formControlName="CastleDamageMode" class="form-control">
-      <option class="col-md-12" *ngFor="let opt of castleDamageModeOptions" [value]="opt.value">{{ opt.label }}</option>
-    </select>
-    </div>
-  
-    <div class="col-md-6 mb-3">
-    <h5>Siege Weapon Health</h5>
-    <label class="mt-1">Define the HPs of siege golem, default being Normal</label>
-    <select formControlName="SiegeWeaponHealth" class="form-control">
-      <option *ngFor="let opt of siegeWeaponHealthOptions" [value]="opt.value">{{ opt.label }}</option>
-    </select>
+      <h5>Player Damage Mode</h5>
+      <label class="mt-1"
+        >The same way that with raids, define if you can pvp 24/7, at certain
+        times or not at all (pretty much like Game Mode: PvE)</label
+      >
+      <select formControlName="PlayerDamageMode" class="form-control">
+        <option *ngFor="let opt of playerDamageModeOptions" [value]="opt.value">
+          {{ opt.label }}
+        </option>
+      </select>
     </div>
 
     <div class="col-md-6 mb-3">
-    <h5>Player Damage Mode</h5>
-    <label class="mt-1">The same way that with raids, define if you can pvp 24/7, at certain times or not at all (pretty much like Game Mode: PvE)</label>
-    <select formControlName="PlayerDamageMode" class="form-control">
-      <option *ngFor="let opt of playerDamageModeOptions" [value]="opt.value">{{ opt.label }}</option>
-    </select>
-    </div>
-  
-    <div class="col-md-6 mb-3">
-    <h5>Castle Heart Damage Mode</h5>
-    <label class="mt-1">Define if you can destroy only blood essence depletted castle, destroy them with a key, or steal them with a key</label>
-    <select formControlName="CastleHeartDamageMode" class="form-control">
-      <option *ngFor="let opt of castleHeartDamageModeOptions" [value]="opt.value">{{ opt.label }}</option>
-    </select>
-    </div>
-  
-    <div class="col-md-6 mb-3">
-    <h5>PvP Protection Mode</h5>
-    <label class="mt-1">The time during which new players will be protected from PvP, up to 2 hours in game</label>
-    <select formControlName="PvPProtectionMode" class="form-control">
-      <option *ngFor="let opt of pvpProtectionModeOptions" [value]="opt.value">{{ opt.label }}</option>
-    </select>
-    </div>
-  
-    <div class="col-md-6 mb-3">
-    <h5>Death Container Permission</h5>
-    <label class="mt-1">Define who can access the death container of a player</label>
-    <select formControlName="DeathContainerPermission" class="form-control">
-      <option *ngFor="let opt of deathContainerPermissionOptions" [value]="opt.value">{{ opt.label }}</option>
-    </select>
+      <h5>Castle Heart Damage Mode</h5>
+      <label class="mt-1"
+        >Define if you can destroy only blood essence depletted castle, destroy
+        them with a key, or steal them with a key</label
+      >
+      <select formControlName="CastleHeartDamageMode" class="form-control">
+        <option
+          *ngFor="let opt of castleHeartDamageModeOptions"
+          [value]="opt.value"
+        >
+          {{ opt.label }}
+        </option>
+      </select>
     </div>
 
     <div class="col-md-6 mb-3">
-    <h5>Relic Spawn Type</h5>
-    <label class="mt-1"></label>
-    <select formControlName="RelicSpawnType" class="form-control">
-      <option *ngFor="let opt of relicSpawnTypeOptions" [value]="opt.value">{{ opt.label }}</option>
-    </select>
+      <h5>PvP Protection Mode</h5>
+      <label class="mt-1"
+        >The time during which new players will be protected from PvP, up to 2
+        hours in game</label
+      >
+      <select formControlName="PvPProtectionMode" class="form-control">
+        <option
+          *ngFor="let opt of pvpProtectionModeOptions"
+          [value]="opt.value"
+        >
+          {{ opt.label }}
+        </option>
+      </select>
     </div>
-    <br>
-  
 
-    <label class="col-md-6 mb-3"><input type="checkbox" formControlName="DisableDisconnectedDeadEnabled"/> Disconnected Dead Enabled </label>
-    <label class="col-md-6 mb-3"><input type="checkbox" formControlName="CanLootEnemyContainers" /> Can Loot Enemy Containers</label>
-    <label class="col-md-6 mb-3"><input type="checkbox" formControlName="BloodBoundEquipment" /> Blood Bound Equipment</label>
-    <label class="col-md-6 mb-3"><input type="checkbox" formControlName="TeleportBoundItems" /> Teleport Bound Items</label>
-    <label class="col-md-6 mb-3"><input type="checkbox" formControlName="BatBoundItems" /> Bat Bound Items</label>
-    <label class="col-md-6 mb-3"><input type="checkbox" formControlName="BatBoundShards" /> Bat Bound Shards</label>
-    <label class="col-md-6 mb-3"><input type="checkbox" formControlName="AllowGlobalChat" /> Allow Global Chat</label>
-    <label class="col-md-6 mb-3"><input type="checkbox" formControlName="AllWaypointsUnlocked" /> All Waypoints Unlocked</label>
-    <label class="col-md-6 mb-3"><input type="checkbox" formControlName="FreeCastleRaid" /> Free Castle Raid</label>
-    <label class="col-md-6 mb-3"><input type="checkbox" formControlName="FreeCastleClaim" /> Free Castle Claim</label>
-    <label class="col-md-6 mb-3"><input type="checkbox" formControlName="FreeCastleDestroy" /> Free Castle Destroy</label>
-    <label class="col-md-6 mb-3"><input type="checkbox" formControlName="InactivityKillEnabled" /> Inactivity Kill Enabled</label>
-    <label class="col-md-6 mb-3"><input type="checkbox" formControlName="CastleRelocationEnabled" /> Castle Relocation Enabled</label>
-    <label class="col-md-6 mb-3"><input type="checkbox" formControlName="AnnounceSiegeWeaponSpawn" /> Announce Siege Weapon Spawn</label>
-    <label class="col-md-6 mb-3"><input type="checkbox" formControlName="ShowSiegeWeaponMapIcon" /> Show Siege Weapon Map Icon</label>
-  
+    <div class="col-md-6 mb-3">
+      <h5>Death Container Permission</h5>
+      <label class="mt-1"
+        >Define who can access the death container of a player</label
+      >
+      <select formControlName="DeathContainerPermission" class="form-control">
+        <option
+          *ngFor="let opt of deathContainerPermissionOptions"
+          [value]="opt.value"
+        >
+          {{ opt.label }}
+        </option>
+      </select>
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <h5>Relic Spawn Type</h5>
+      <label class="mt-1">Plentiful means that more than one shard of each soul can exist at the same time</label>
+      <select formControlName="RelicSpawnType" class="form-control">
+        <option *ngFor="let opt of relicSpawnTypeOptions" [value]="opt.value">
+          {{ opt.label }}
+        </option>
+      </select>
+    </div>
+    <br />
+
+    <label class="col-md-6 mb-3"
+      ><input
+        type="checkbox"
+        formControlName="DisableDisconnectedDeadEnabled"
+      />
+      Disconnected Dead Enabled
+    </label>
+    <label class="col-md-6 mb-3"
+      ><input type="checkbox" formControlName="CanLootEnemyContainers" /> Can
+      Loot Enemy Containers</label
+    >
+    <label class="col-md-6 mb-3"
+      ><input type="checkbox" formControlName="BloodBoundEquipment" /> Blood
+      Bound Equipment</label
+    >
+    <label class="col-md-6 mb-3"
+      ><input type="checkbox" formControlName="TeleportBoundItems" /> Teleport
+      Bound Items</label
+    >
+    <label class="col-md-6 mb-3"
+      ><input type="checkbox" formControlName="BatBoundItems" /> Bat Bound
+      Items</label
+    >
+    <label class="col-md-6 mb-3"
+      ><input type="checkbox" formControlName="BatBoundShards" /> Bat Bound
+      Shards</label
+    >
+    <label class="col-md-6 mb-3"
+      ><input type="checkbox" formControlName="AllowGlobalChat" /> Allow Global
+      Chat</label
+    >
+    <label class="col-md-6 mb-3"
+      ><input type="checkbox" formControlName="AllWaypointsUnlocked" /> All
+      Waypoints Unlocked</label
+    >
+    <label class="col-md-6 mb-3"
+      ><input type="checkbox" formControlName="FreeCastleRaid" /> Free Castle
+      Raid</label
+    >
+    <label class="col-md-6 mb-3"
+      ><input type="checkbox" formControlName="FreeCastleClaim" /> Free Castle
+      Claim</label
+    >
+    <label class="col-md-6 mb-3"
+      ><input type="checkbox" formControlName="FreeCastleDestroy" /> Free Castle
+      Destroy</label
+    >
+    <label class="col-md-6 mb-3"
+      ><input type="checkbox" formControlName="InactivityKillEnabled" />
+      Inactivity Kill Enabled</label
+    >
+    <label class="col-md-6 mb-3"
+      ><input type="checkbox" formControlName="CastleRelocationEnabled" />
+      Castle Relocation Enabled</label
+    >
+    <label class="col-md-6 mb-3"
+      ><input type="checkbox" formControlName="AnnounceSiegeWeaponSpawn" />
+      Announce Siege Weapon Spawn</label
+    >
+    <label class="col-md-6 mb-3"
+      ><input type="checkbox" formControlName="ShowSiegeWeaponMapIcon" /> Show
+      Siege Weapon Map Icon</label
+    >
+
     <!-- Nombres / sliders -->
     <!--<label>Inactivity Kill Time Min</label>
     <input type="number" formControlName="InactivityKillTimeMin"/>
@@ -100,311 +209,625 @@
   
     <label>Inactivity Kill Safe Time Addition</label>
     <input type="number" formControlName="InactivityKillSafeTimeAddition" /> Unused for now at least -->
-  
+
+    <div class="row justify-content-center align-items-stretch mt-3">
+    <div class="col-md-6">
     <h5>Inactivity Kill Timer Max Item Level</h5>
-    <input type="number" formControlName="InactivityKillTimerMaxItemLevel" min="0" max="255"/>
-  
+    <label>Define how much time before killing someone whose equipement level is equal to InactivityKill Timer Max Item Level</label>
+    <input
+      type="number"
+      formControlName="InactivityKillTimerMaxItemLevel"
+      min="0"
+      max="255" class="form-control"
+    />
+    <label>Value: From 0 to 255</label>
+  </div>
+
+    <div class="col-md-6">
     <h5>Starting Progression Level</h5>
-    <input type="number" formControlName="StartingProgressionLevel" min="0" max="255"/>
-  
+    <label> Defines which level new
+      connected players start
+      at (progression wise),</label>
+    <input
+      type="number"
+      formControlName="StartingProgressionLevel"
+      min="0"
+      max="255" class="form-control"
+    />
+  </div>
+
     <!--<label>Disable Disconnected Dead Timer</label>
     <input type="number" formControlName="DisableDisconnectedDeadTimer" />-->
-  
+
+    <div class="col-md-6">
     <h5>Disconnected Sun Immunity Time</h5>
     <label>Define how long after disconnection players are immune to sun</label>
-    <input type="number" formControlName="DisconnectedSunImmunityTime" min="0" max="3600"/>
-    <p>Value: From 0 to 3600</p>
-  
+    <input
+      type="number"
+      formControlName="DisconnectedSunImmunityTime"
+      min="0"
+      max="3600" class="form-control"
+    />
+    <label>Value: From 0 to 3600</label>
+  </div>
+
+    <div class="col-md-6">
     <h5>Inventory Stacks Modifier</h5>
-    <input type="number" step="0.01" formControlName="InventoryStacksModifier" min="0.25" max="3"/>
-  
+    <input
+      type="number"
+      step="0.01"
+      formControlName="InventoryStacksModifier"
+      min="0.25"
+      max="3" class="form-control"
+    />
+  </div>
+
+    <div class="col-md-6">
     <h5>Drop Table Modifier General</h5>
-    <input type="number" step="0.01" formControlName="DropTableModifier_General" />
-  
+    <input
+      type="number"
+      step="0.01"
+      formControlName="DropTableModifier_General" class="form-control"
+    />
+  </div>
+
+    <div class="col-md-6">
     <h5>Drop Table Modifier Stygian Shards</h5>
-    <input type="number" step="0.01" formControlName="DropTableModifier_StygianShards" />
-  
+    <input
+      type="number"
+      step="0.01"
+      formControlName="DropTableModifier_StygianShards" class="form-control"
+    />
+  </div>
+
+    <div class="col-md-6">
     <h5>Drop Table Modifier Missions</h5>
-    <input type="number" step="0.01" formControlName="DropTableModifier_Missions" />
-  
+    <input
+      type="number"
+      step="0.01"
+      formControlName="DropTableModifier_Missions" class="form-control"
+    />
+  </div>
+
+    <div class="col-md-6">
     <h5>Material Yield Modifier Global</h5>
-    <input type="number" step="0.01" formControlName="MaterialYieldModifier_Global" />
-  
+    <input
+      type="number"
+      step="0.01"
+      formControlName="MaterialYieldModifier_Global" class="form-control"
+    />
+  </div>
+
+    <div class="col-md-6">
     <h5>Blood Essence Yield Modifier</h5>
-    <input type="number" step="0.01" formControlName="BloodEssenceYieldModifier" />
-  
+    <input
+      type="number"
+      step="0.01"
+      formControlName="BloodEssenceYieldModifier" class="form-control"
+    />
+  </div>
+
+    <div class="col-md-6">
     <h5>PvP Vampire Respawn Modifier</h5>
-    <input type="number" step="0.01" formControlName="PvPVampireRespawnModifier" />
-  
+    <input
+      type="number"
+      step="0.01"
+      formControlName="PvPVampireRespawnModifier" class="form-control"
+    />
+  </div>
+
+    <div class="col-md-6">
     <h5>Clan Size</h5>
-    <input type="number" formControlName="ClanSize" />
-  
+    <input type="number" formControlName="ClanSize" class="form-control" />
+  </div>
+
+    <div class="col-md-6">
     <h5>Blood Drain Modifier</h5>
-    <input type="number" step="0.01" formControlName="BloodDrainModifier" />
-  
+    <input type="number" step="0.01" formControlName="BloodDrainModifier"  class="form-control"/>
+  </div>
+
+    <div class="col-md-6">
     <h5>Durability Drain Modifier</h5>
-    <input type="number" step="0.01" formControlName="DurabilityDrainModifier" />
-  
+    <input
+      type="number"
+      step="0.01"
+      formControlName="DurabilityDrainModifier" class="form-control"
+    />
+  </div>
+
+    <div class="col-md-6">
     <h5>Garlic Area Strength Modifier</h5>
-    <input type="number" step="0.01" formControlName="GarlicAreaStrengthModifier" />
-  
+    <input
+      type="number"
+      step="0.01"
+      formControlName="GarlicAreaStrengthModifier" class="form-control"
+    />
+  </div>
+
+    <div class="col-md-6">
     <h5>Holy Area Strength Modifier</h5>
-    <input type="number" step="0.01" formControlName="HolyAreaStrengthModifier" />
-  
+    <input
+      type="number"
+      step="0.01"
+      formControlName="HolyAreaStrengthModifier" class="form-control"
+    />
+  </div>
+
+    <div class="col-md-6">
     <h5>Silver Strength Modifier</h5>
-    <input type="number" step="0.01" formControlName="SilverStrengthModifier" />
-  
+    <input type="number" step="0.01" formControlName="SilverStrengthModifier" class="form-control"/>
+  </div>
+
+    <div class="col-md-6">
     <h5>Sun Damage Modifier</h5>
-    <input type="number" step="0.01" formControlName="SunDamageModifier" />
-  
+    <input type="number" step="0.01" formControlName="SunDamageModifier" class="form-control"/>
+  </div>
+
+    <div class="col-md-6">
     <h5>Castle Decay Rate Modifier</h5>
-    <input type="number" step="0.01" formControlName="CastleDecayRateModifier" />
-  
+    <input
+      type="number"
+      step="0.01"
+      formControlName="CastleDecayRateModifier" class="form-control"
+    />
+  </div>
+
+    <div class="col-md-6">
     <h5>Castle Blood Essence Drain Modifier</h5>
-    <input type="number" step="0.01" formControlName="CastleBloodEssenceDrainModifier" />
-  
+    <input
+      type="number"
+      step="0.01"
+      formControlName="CastleBloodEssenceDrainModifier" class="form-control"
+    />
+  </div>
+
+    <div class="col-md-6">
     <h5>Castle Siege Timer</h5>
-    <input type="number" formControlName="CastleSiegeTimer" />
-  
+    <input type="number" formControlName="CastleSiegeTimer" class="form-control"/>
+  </div>
+
+    <div class="col-md-6">
     <h5>Castle Under Attack Timer</h5>
-    <input type="number" formControlName="CastleUnderAttackTimer" />
-  
+    <input type="number" formControlName="CastleUnderAttackTimer" class="form-control"/>
+  </div>
+
+    <div class="col-md-6">
     <h5>Castle Raid Timer</h5>
-    <input type="number" formControlName="CastleRaidTimer" />
-  
+    <input type="number" formControlName="CastleRaidTimer" class="form-control"/>
+  </div>
+
+    <div class="col-md-6">
     <h5>Castle Raid Protection Time</h5>
-    <input type="number" formControlName="CastleRaidProtectionTime" />
-  
+    <input type="number" formControlName="CastleRaidProtectionTime" class="form-control"/>
+  </div>
+
+    <div class="col-md-6">
     <h5>Castle Exposed Free Claim Timer</h5>
-    <input type="number" formControlName="CastleExposedFreeClaimTimer" />
-  
+    <input type="number" formControlName="CastleExposedFreeClaimTimer" class="form-control"/>
+  </div>
+
+    <div class="col-md-6">
     <h5>Castle Relocation Cooldown</h5>
-    <input type="number" formControlName="CastleRelocationCooldown" />
-  
+    <input type="number" formControlName="CastleRelocationCooldown" class="form-control"/>
+  </div>
+
+    <div class="col-md-6">
     <h5>Build Cost Modifier</h5>
-    <input type="number" step="0.01" formControlName="BuildCostModifier" />
-  
+    <input type="number" step="0.01" formControlName="BuildCostModifier" class="form-control"/>
+  </div>
+
+    <div class="col-md-6">
     <h5>Recipe Cost Modifier</h5>
-    <input type="number" step="0.01" formControlName="RecipeCostModifier" />
-  
+    <input type="number" step="0.01" formControlName="RecipeCostModifier" class="form-control"/>
+  </div>
+
+
+    <div class="col-md-6">
     <h5>Craft Rate Modifier</h5>
-    <input type="number" step="0.01" formControlName="CraftRateModifier" />
-  
+    <input type="number" step="0.01" formControlName="CraftRateModifier" class="form-control"/>
+  </div>
+
+    <div class="col-md-6">
     <h5>Research Cost Modifier</h5>
-    <input type="number" step="0.01" formControlName="ResearchCostModifier" />
-  
+    <input type="number" step="0.01" formControlName="ResearchCostModifier" class="form-control"/>
+  </div>
+
+    <div class="col-md-6">
     <h5>Refinement Cost Modifier</h5>
-    <input type="number" step="0.01" formControlName="RefinementCostModifier" />
-  
+    <input type="number" step="0.01" formControlName="RefinementCostModifier" class="form-control"/>
+  </div>
+
+    <div class="col-md-6">
     <h5>Refinement Rate Modifier</h5>
-    <input type="number" step="0.01" formControlName="RefinementRateModifier" />
-  
+    <input type="number" step="0.01" formControlName="RefinementRateModifier" class="form-control" />
+  </div>
+
+    <div class="col-md-6">
     <h5>Research Time Modifier</h5>
-    <input type="number" step="0.01" formControlName="ResearchTimeModifier" />
-  
+    <input type="number" step="0.01" formControlName="ResearchTimeModifier" class="form-control" />
+  </div>
+
+    <div class="col-md-6">
     <h5>Dismantle Resource Modifier</h5>
-    <input type="number" step="0.01" formControlName="DismantleResourceModifier" />
-  
+    <input
+      type="number"
+      step="0.01"
+      formControlName="DismantleResourceModifier" class="form-control"
+    />
+  </div>
+
+  <div class="col-md-6">
     <h5>Servant Convert Rate Modifier</h5>
-    <input type="number" step="0.01" formControlName="ServantConvertRateModifier" />
-  
+    <input
+      type="number"
+      step="0.01"
+      formControlName="ServantConvertRateModifier" class="form-control"
+    />
+  </div>
+</div>
+
+  <div class="col-md-6">
     <h5>Repair Cost Modifier</h5>
-    <input type="number" step="0.01" formControlName="RepairCostModifier" />
-  
+    <input type="number" step="0.01" formControlName="RepairCostModifier" class="form-control"/>
+  </div>
+
+    <div class="col-md-6">
     <h5>Death Durability Factor Loss</h5>
-    <input type="number" step="0.01" formControlName="Death_DurabilityFactorLoss" />
-  
+    <input
+      type="number"
+      step="0.01"
+      formControlName="Death_DurabilityFactorLoss"
+      class="form-control"
+    />
+  </div>
+
+    <div class="col-md-6">
     <h5>Death Durability Loss Factor As Resources</h5>
-    <input type="number" step="0.01" formControlName="Death_DurabilityLossFactorAsResources" />
-  
+    <input
+      type="number"
+      step="0.01"
+      formControlName="Death_DurabilityLossFactorAsResources"
+      class="form-control"
+    />
+  </div>
+
+    <div class="col-md-6">
     <h5>Starter Equipment Id</h5>
-    <input type="number" formControlName="StarterEquipmentId" />
-  
+    <select formControlName="StarterEquipmentId" class="form-select">
+      <option
+        *ngFor="let starterEquipement of starterEquipementIdOptions"
+        [value]="starterEquipement.value"
+      >
+        {{ starterEquipement.label }}
+      </option>
+    </select>
+  </div>
+
+    <div class="col-md-6">
     <h5>Starter Resources Id</h5>
-    <input type="number" formControlName="StarterResourcesId" />
-  
+    <select formControlName="StarterEquipmentId" class="form-select">
+      <option *ngFor="let starterResource of starterResourceIdOptions" [value]="starterResource.value">
+        {{ starterResource.label }}
+      </option>
+    </select>
+  </div>
+
+    <div class="col-md-6">
     <h5>SoulShard Durability Loss Rate</h5>
-    <input type="number" step="0.01" formControlName="SoulShard_DurabilityLossRate" />
+    <input
+      type="number"
+      step="0.01"
+      formControlName="SoulShard_DurabilityLossRate"
+      class="form-control"
+    />
+  </div>
+</div>
+  
+
+  
+  <div formGroupName="GameTimeModifiers" class="mb-4">
+    <h5>Game Time Modifiers</h5>
+    <div class="row">
+      <div
+        class="col-md-6 mb-3"
+        *ngFor="
+          let key of [
+            'DayDurationInSeconds',
+            'DayStartHour',
+            'DayStartMinute',
+            'DayEndHour',
+            'DayEndMinute',
+            'BloodMoonFrequency_Min',
+            'BloodMoonFrequency_Max',
+            'BloodMoonBuff'
+          ]
+        "
+      >
+        <label class="form-label">{{ key }}</label>
+        <input type="number" class="form-control" [formControlName]="key" />
+      </div>
+    </div>
+  </div>
+
+  <div formGroupName="VampireStatModifiers" class="mb-4">
+    <h5>Vampire Stat Modifiers</h5>
+    <div class="row">
+      <div
+        class="col-md-6 mb-3"
+        *ngFor="
+          let key of [
+            'MaxHealthModifier',
+            'PhysicalPowerModifier',
+            'SpellPowerModifier',
+            'ResourcePowerModifier',
+            'SiegePowerModifier',
+            'DamageReceivedModifier',
+            'ReviveCancelDelay'
+          ]
+        "
+      >
+        <label class="form-label">{{ key }}</label>
+        <input type="number" class="form-control" [formControlName]="key" />
+      </div>
+    </div>
+  </div>
+
+  <div formGroupName="UnitStatModifiers_Global" class="mb-4">
+    <h5>Unit Stat Modifiers - Global</h5>
+    <div class="row">
+      <div
+        class="col-md-6 mb-3"
+        *ngFor="
+          let key of ['MaxHealthModifier', 'PowerModifier', 'LevelIncrease']
+        "
+      >
+        <label class="form-label">{{ key }}</label>
+        <input type="number" class="form-control" [formControlName]="key" />
+      </div>
+    </div>
+  </div>
+
+  <div formGroupName="UnitStatModifiers_VBlood" class="mb-4">
+    <h5>Unit Stat Modifiers - VBlood</h5>
+    <div class="row">
+      <div
+        class="col-md-6 mb-3"
+        *ngFor="
+          let key of ['MaxHealthModifier', 'PowerModifier', 'LevelIncrease']
+        "
+      >
+        <label class="form-label">{{ key }}</label>
+        <input type="number" class="form-control" [formControlName]="key" />
+      </div>
+    </div>
+  </div>
+
+  <div formGroupName="EquipmentStatModifiers_Global" class="mb-4">
+    <h5>Equipment Stat Modifiers - Global</h5>
+    <div class="row">
+      <div
+        class="col-md-6 mb-3"
+        *ngFor="
+          let key of [
+            'MaxHealthModifier',
+            'ResourceYieldModifier',
+            'PhysicalPowerModifier',
+            'SpellPowerModifier',
+            'SiegePowerModifier',
+            'MovementSpeedModifier'
+          ]
+        "
+      >
+        <label class="form-label">{{ key }}</label>
+        <input type="number" class="form-control" [formControlName]="key" />
+      </div>
+    </div>
+  </div>
+
+  <div formGroupName="TraderModifiers" class="mb-4">
+    <h5>Trader Modifiers</h5>
+    <div class="row">
+      <div
+        class="col-md-6 mb-3"
+        *ngFor="
+          let key of ['StockModifier', 'PriceModifier', 'RestockTimerModifier']
+        "
+      >
+        <label class="form-label">{{ key }}</label>
+        <input type="number" class="form-control" [formControlName]="key" />
+      </div>
+    </div>
+  </div>
+
+  <div formGroupName="UnlockedAchievements" class="mb-4">
+    <label for="unlockedAchievements">Unlocked Achievements</label>
+    <div *ngFor="let achievement of unlockedAchievementsOptions; let i = index">
+      <input
+        type="checkbox"
+        id="{{ achievement.label }}"
+        [value]="achievement.value"
+        [formControl]="getControl(i)"
+      />
+      <!-- Utilisation de la méthode getControl -->
+      <label for="{{ achievement.label }}">{{ achievement.label }}</label>
+    </div>
+  </div>
+
+  <div formArrayName="UnlockedResearchs" class="mb-4">
+    <label for="unlockedAchievements">Unlocked Achievements</label>
+    <div *ngFor="let Research of unlockedResearchOptions; let i = index">
+      <input
+        type="checkbox"
+        id="{{ Research.label }}"
+        [value]="Research.value"
+        [formControl]="getControl(i)"
+      />
+      <label for="{{ Research.label }}">{{ Research.label }}</label>
+    </div>
+  </div>
+
+  <div formGroupName="VBloodUnitSettings" class="mb-4">
+    <h5>VBlood Unit Settings</h5>
+    <p>
+      Vblood Unit Settings aren't handled so far, please refer to the
+      <a
+        href="https://cdn.discordapp.com/attachments/976404273015431168/1364602638120779796/VRising_Server_Game_Settings_1.1.1.pdf?ex=6820057e&is=681eb3fe&hm=aed7778e085be25263ee144844fc760bea09145f293dbfc714e4a1ffec0e0bb3&"
+        >Vrising Server Game Settings PDF</a
+      >
+      for more informations on how to customize a specific Vblood
+    </p>
+  </div>
+
+  <div formGroupName="WarEventGameSettings" class="mb-4">
+    <h5>War Event Game Settings</h5>
+    <div class="row">
+      <!-- Interval -->
+      <div class="col-md-6 mb-3">
+        <label class="form-label">Interval</label>
+        <select class="form-select" formControlName="Interval">
+          <option
+            *ngFor="let opt of warEventIntervalOptions"
+            [value]="opt.value"
+          >
+            {{ opt.label }}
+          </option>
+        </select>
+      </div>
+
+      <!-- Major Duration -->
+      <div class="col-md-6 mb-3">
+        <label class="form-label">Major Duration</label>
+        <select class="form-select" formControlName="MajorDuration">
+          <option
+            *ngFor="let opt of warEventDurationOptions"
+            [value]="opt.value"
+          >
+            {{ opt.label }}
+          </option>
+        </select>
+      </div>
+
+      <!-- Minor Duration -->
+      <div class="col-md-6 mb-3">
+        <label class="form-label">Minor Duration (minutes)</label>
+        <select class="form-select" formControlName="MinorDuration">
+          <option
+            *ngFor="let opt of warEventDurationOptions"
+            [value]="opt.value"
+          >
+            {{ opt.label }}
+          </option>
+        </select>
+      </div>
     </div>
 
-    <div formGroupName="GameTimeModifiers" class="mb-4">
-      <h5>Game Time Modifiers</h5>
+    <!-- Weekday Time -->
+    <div formGroupName="WeekdayTime" class="mb-3">
+      <label class="form-label">Weekday Time</label>
       <div class="row">
-        <div class="col-md-6 mb-3" *ngFor="let key of ['DayDurationInSeconds','DayStartHour','DayStartMinute','DayEndHour','DayEndMinute','BloodMoonFrequency_Min','BloodMoonFrequency_Max','BloodMoonBuff']">
-          <label class="form-label">{{ key }}</label>
-          <input type="number" class="form-control" [formControlName]="key" />
+        <div class="col-md-3 mb-2">
+          <label class="form-label">Start Hour</label>
+          <input
+            type="number"
+            class="form-control"
+            formControlName="StartHour"
+          />
+        </div>
+        <div class="col-md-3 mb-2">
+          <label class="form-label">Start Minute</label>
+          <input
+            type="number"
+            class="form-control"
+            formControlName="StartMinute"
+          />
+        </div>
+        <div class="col-md-3 mb-2">
+          <label class="form-label">End Hour</label>
+          <input type="number" class="form-control" formControlName="EndHour" />
+        </div>
+        <div class="col-md-3 mb-2">
+          <label class="form-label">End Minute</label>
+          <input
+            type="number"
+            class="form-control"
+            formControlName="EndMinute"
+          />
         </div>
       </div>
-    </div>
-    
-    <div formGroupName="VampireStatModifiers" class="mb-4">
-      <h5>Vampire Stat Modifiers</h5>
-      <div class="row">
-        <div class="col-md-6 mb-3" *ngFor="let key of ['MaxHealthModifier','PhysicalPowerModifier','SpellPowerModifier','ResourcePowerModifier','SiegePowerModifier','DamageReceivedModifier','ReviveCancelDelay']">
-          <label class="form-label">{{ key }}</label>
-          <input type="number" class="form-control" [formControlName]="key" />
-        </div>
-      </div>
-    </div>
-    
-    <div formGroupName="UnitStatModifiers_Global" class="mb-4">
-      <h5>Unit Stat Modifiers - Global</h5>
-      <div class="row">
-        <div class="col-md-6 mb-3" *ngFor="let key of ['MaxHealthModifier','PowerModifier','LevelIncrease']">
-          <label class="form-label">{{ key }}</label>
-          <input type="number" class="form-control" [formControlName]="key" />
-        </div>
-      </div>
-    </div>
-    
-    <div formGroupName="UnitStatModifiers_VBlood" class="mb-4">
-      <h5>Unit Stat Modifiers - VBlood</h5>
-      <div class="row">
-        <div class="col-md-6 mb-3" *ngFor="let key of ['MaxHealthModifier','PowerModifier','LevelIncrease']">
-          <label class="form-label">{{ key }}</label>
-          <input type="number" class="form-control" [formControlName]="key" />
-        </div>
-      </div>
-    </div>
-    
-    <div formGroupName="EquipmentStatModifiers_Global" class="mb-4">
-      <h5>Equipment Stat Modifiers - Global</h5>
-      <div class="row">
-        <div class="col-md-6 mb-3" *ngFor="let key of ['MaxHealthModifier','ResourceYieldModifier','PhysicalPowerModifier','SpellPowerModifier','SiegePowerModifier','MovementSpeedModifier']">
-          <label class="form-label">{{ key }}</label>
-          <input type="number" class="form-control" [formControlName]="key" />
-        </div>
-      </div>
-    </div>
-    
-    <div formGroupName="TraderModifiers" class="mb-4">
-      <h5>Trader Modifiers</h5>
-      <div class="row">
-        <div class="col-md-6 mb-3" *ngFor="let key of ['StockModifier','PriceModifier','RestockTimerModifier']">
-          <label class="form-label">{{ key }}</label>
-          <input type="number" class="form-control" [formControlName]="key" />
-        </div>
-      </div>
-    </div>
-    
-    <div formGroupName="UnlockedAchievements" class="mb-4">
-      <label for="unlockedAchievements">Unlocked Achievements</label>
-      <div *ngFor="let achievement of unlockedAchievementsOptions; let i = index">
-        <input 
-          type="checkbox" 
-          id="{{achievement.label}}" 
-          [value]="achievement.value" 
-          [formControl]="getControl(i)"> <!-- Utilisation de la méthode getControl -->
-        <label for="{{achievement.label}}">{{achievement.label}}</label>
-      </div>
-    </div>
-    
-    <div formArrayName="UnlockedResearchs" class="mb-4">
-      <label for="unlockedAchievements">Unlocked Achievements</label>
-      <div *ngFor="let Research of unlockedResearchOptions; let i = index">
-        <input 
-          type="checkbox" 
-          id="{{Research.label}}" 
-          [value]="Research.value" 
-          [formControl]="getControl(i)">
-        <label for="{{Research.label}}">{{Research.label}}</label>
-      </div>
-    </div>
-    
-    <div formGroupName="VBloodUnitSettings" class="mb-4">
-      <h5>VBlood Unit Settings</h5>
-        <p>Vblood Unit Settings aren't handled so far, please refer to the <a href="https://cdn.discordapp.com/attachments/976404273015431168/1364602638120779796/VRising_Server_Game_Settings_1.1.1.pdf?ex=6820057e&is=681eb3fe&hm=aed7778e085be25263ee144844fc760bea09145f293dbfc714e4a1ffec0e0bb3&">Vrising Server Game Settings PDF</a> for more informations on how to customize a specific Vblood</p>
     </div>
 
-    <div formGroupName="WarEventGameSettings" class="mb-4">
-      <h5>War Event Game Settings</h5>
+    <!-- Weekend Time -->
+    <div formGroupName="WeekendTime" class="mb-3">
+      <label class="form-label">Weekend Time</label>
       <div class="row">
-        <!-- Interval -->
-        <div class="col-md-6 mb-3">
-          <label class="form-label">Interval</label>
-          <select class="form-select" formControlName="Interval">
-            <option *ngFor="let opt of warEventIntervalOptions" [value]="opt.value">{{ opt.label }}</option>
-          </select>
+        <div class="col-md-3 mb-2">
+          <label class="form-label">Start Hour</label>
+          <input
+            type="number"
+            class="form-control"
+            formControlName="StartHour"
+          />
         </div>
-    
-        <!-- Major Duration -->
-        <div class="col-md-6 mb-3">
-          <label class="form-label">Major Duration</label>
-          <select class="form-select" formControlName="MajorDuration">
-            <option *ngFor="let opt of warEventDurationOptions" [value]="opt.value">{{ opt.label }}</option>
-          </select>
+        <div class="col-md-3 mb-2">
+          <label class="form-label">Start Minute</label>
+          <input
+            type="number"
+            class="form-control"
+            formControlName="StartMinute"
+          />
         </div>
-    
-        <!-- Minor Duration -->
-        <div class="col-md-6 mb-3">
-          <label class="form-label">Minor Duration (minutes)</label>
-          <select class="form-select" formControlName="MinorDuration">
-            <option *ngFor="let opt of warEventDurationOptions" [value]="opt.value">{{ opt.label }}</option>
-          </select>
+        <div class="col-md-3 mb-2">
+          <label class="form-label">End Hour</label>
+          <input type="number" class="form-control" formControlName="EndHour" />
         </div>
-      </div>
-    
-      <!-- Weekday Time -->
-      <div formGroupName="WeekdayTime" class="mb-3">
-        <label class="form-label">Weekday Time</label>
-        <div class="row">
-          <div class="col-md-3 mb-2">
-            <label class="form-label">Start Hour</label>
-            <input type="number" class="form-control" formControlName="StartHour" />
-          </div>
-          <div class="col-md-3 mb-2">
-            <label class="form-label">Start Minute</label>
-            <input type="number" class="form-control" formControlName="StartMinute" />
-          </div>
-          <div class="col-md-3 mb-2">
-            <label class="form-label">End Hour</label>
-            <input type="number" class="form-control" formControlName="EndHour" />
-          </div>
-          <div class="col-md-3 mb-2">
-            <label class="form-label">End Minute</label>
-            <input type="number" class="form-control" formControlName="EndMinute" />
-          </div>
-        </div>
-      </div>
-    
-      <!-- Weekend Time -->
-      <div formGroupName="WeekendTime" class="mb-3">
-        <label class="form-label">Weekend Time</label>
-        <div class="row">
-          <div class="col-md-3 mb-2">
-            <label class="form-label">Start Hour</label>
-            <input type="number" class="form-control" formControlName="StartHour" />
-          </div>
-          <div class="col-md-3 mb-2">
-            <label class="form-label">Start Minute</label>
-            <input type="number" class="form-control" formControlName="StartMinute" />
-          </div>
-          <div class="col-md-3 mb-2">
-            <label class="form-label">End Hour</label>
-            <input type="number" class="form-control" formControlName="EndHour" />
-          </div>
-          <div class="col-md-3 mb-2">
-            <label class="form-label">End Minute</label>
-            <input type="number" class="form-control" formControlName="EndMinute" />
-          </div>
-        </div>
-      </div>
-    
-      <!-- Scaling Players -->
-      <div class="row">
-        <div class="col-md-6 mb-3" *ngFor="let group of ['ScalingPlayers1', 'ScalingPlayers2', 'ScalingPlayers3', 'ScalingPlayers4']">
-          <div [formGroupName]="group">
-            <h5 class="form-label col-md-12">{{ group }}</h5>
-            <label>Points Modifier</label>
-            <input type="number" class="form-control mb-2" formControlName="PointsModifier" placeholder="Points Modifier" />
-            <label>Drop Modifier</label>
-            <input type="number" class="form-control" formControlName="DropModifier" placeholder="Drop Modifier" />
-          </div>
+        <div class="col-md-3 mb-2">
+          <label class="form-label">End Minute</label>
+          <input
+            type="number"
+            class="form-control"
+            formControlName="EndMinute"
+          />
         </div>
       </div>
     </div>
-    
-    <div class="d-flex justify-content-center">
-    <button type="submit" class="btn btn-primary mt-3 mb-3">Save Settings</button>
+
+    <!-- Scaling Players -->
+    <div class="row">
+      <div
+        class="col-md-6 mb-3"
+        *ngFor="
+          let group of [
+            'ScalingPlayers1',
+            'ScalingPlayers2',
+            'ScalingPlayers3',
+            'ScalingPlayers4'
+          ]
+        "
+      >
+        <div [formGroupName]="group">
+          <h5 class="form-label col-md-12">{{ group }}</h5>
+          <label>Points Modifier</label>
+          <input
+            type="number"
+            class="form-control mb-2"
+            formControlName="PointsModifier"
+            placeholder="Points Modifier"
+          />
+          <label>Drop Modifier</label>
+          <input
+            type="number"
+            class="form-control"
+            formControlName="DropModifier"
+            placeholder="Drop Modifier"
+          />
+        </div>
+      </div>
     </div>
-  </form>
+  </div>
+
+  <div class="d-flex justify-content-center">
+    <button type="submit" class="btn btn-primary mt-3 mb-3">
+      Save Settings
+    </button>
+  </div>
+</form>

@@ -273,7 +273,31 @@
 
   export const warEventIntervalOptions = Object.entries(WarEventInterval).map(([key, value]) => ({ label: key, value }));
   export const warEventDurationOptions = Object.entries(WarEventDuration).map(([key, value]) => ({ label: key, value }));
+
+  export enum StarterEquipmentId{
+    None= 0,
+    Copper= 742198603,
+    Merciless_Copper= -663535879,
+    Iron = 688096336,
+    Merciless_Iron = -1502721803,
+    Dark_Silver =  28431735,
+    Sanguine = -983090495,
+    Dracula = -1466803079,
+  }
   
+  export const StarterEquipmentIdOptions = Object.entries(StarterEquipmentId).filter(([key, value]) => isNaN(Number(key))).map(([key, value]) => ({ label :key, value}));
+
+  export enum StarterResourcesId{
+    None= 0,
+    Level30 =1982471388,
+    Level40 =1504234317,
+    Level50 =548330870,
+    Level60 =815373441,
+    Level70 =-1370930855,
+    Level80 =-1394108841,
+  }
+
+  export const StarterResourceIdOptions = Object.entries(StarterResourcesId).filter(([key, value]) => isNaN(Number(key))).map(([key, value]) => ({ label :key, value}));
   
   export interface GameSettings {
     GameDifficulty: GameDifficulty;
