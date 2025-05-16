@@ -3,6 +3,9 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { CommonModule, NgFor } from '@angular/common';
 import { GameDifficultyPreset, GameDifficultyOptions } from '../game-difficulty-preset';
 import { gameSettingsPresetOptions } from '../gamesettingsinterfaces';
+import { MatDialog } from '@angular/material/dialog';
+import { DataDisplayerComponent } from '../data-displayer/data-displayer.component';
+import { ServerHostSettings } from '../server-host-settings';
 
 @Component({
   selector: 'app-servergamesettinggenerator',
@@ -18,7 +21,7 @@ export class ServergamesettinggeneratorComponent {
   difficultyOptions = GameDifficultyOptions;
   presetName = gameSettingsPresetOptions;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private dialogRef : MatDialog) {
     this.serverForm = this.fb.group({
       Name: ['ErwanMMV-MyVrisingServerName', Validators.required],
       Description: ['This is an awesome description of my server'],
@@ -55,7 +58,10 @@ export class ServergamesettinggeneratorComponent {
     if (this.serverForm.valid) {
       var formData = this.serverForm.value;
       formData.ListOnEOS = formData.ListOnSteam;
-      alert('Copy and paste this in your ServerHostSettings.json:\n' + JSON.stringify(formData, null, 2));
+      //alert('Copy and paste this in your ServerHostSettings.json:\n' + JSON.stringify(formData, null, 2));
+      let dataToDisplay = formData as ServerHostSettings;
+      console.log("Before sending the dialog opener" + JSON.stringify(dataToDisplay));
+      this.dialogRef.open(DataDisplayerComponent, {data: dataToDisplay })
     } else {
       alert('Please fill in all required fields.');
     }

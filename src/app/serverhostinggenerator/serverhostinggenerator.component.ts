@@ -34,8 +34,11 @@ import {
   StarterEquipmentId,
   StarterEquipmentIdOptions,
   StarterResourceIdOptions,
+  GameSettings,
  } from '../gamesettingsinterfaces';
  import { NgSelectModule } from '@ng-select/ng-select';
+import { MatDialog } from '@angular/material/dialog';
+import { DataDisplayerComponent } from '../data-displayer/data-displayer.component';
 
 @Component({
   selector: 'app-serverhostinggenerator',
@@ -63,7 +66,7 @@ export class ServerhostinggeneratorComponent {
   starterEquipementIdOptions = StarterEquipmentIdOptions;
   starterResourceIdOptions = StarterResourceIdOptions;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private dialogRef : MatDialog) {
   }
 
   ngOnInit(): void {
@@ -334,9 +337,12 @@ export class ServerhostinggeneratorComponent {
     this.form.value.UnlockedAchievements = this.appendResults(this.unlockedAchievementsOptions,this.form.value.UnlockedAchievements);
     let unlockedResearchCorriged = this.appendResults(this.unlockedResearchOptions, this.form.value.UnlockedResearchs);
     this.form.value.UnlockedResearchs = unlockedResearchCorriged; 
+
     if (this.form.valid) {
-      alert('Copy and paste this in your ServerGameSettings.json:\n' + JSON.stringify(this.form.value, null, 2));
+      let dataToDisplay = this.form.value as GameSettings;
+      this.dialogRef.open(DataDisplayerComponent, {data: dataToDisplay })
     }
+    
     else {
       const errors: string[] = [];
   
