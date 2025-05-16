@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule, NgFor } from '@angular/common';
 import { GameDifficultyPreset, GameDifficultyOptions } from '../game-difficulty-preset';
+import { gameSettingsPresetOptions } from '../gamesettingsinterfaces';
 
 @Component({
   selector: 'app-servergamesettinggenerator',
@@ -15,6 +16,7 @@ import { GameDifficultyPreset, GameDifficultyOptions } from '../game-difficulty-
 export class ServergamesettinggeneratorComponent {
   serverForm: FormGroup;
   difficultyOptions = GameDifficultyOptions;
+  presetName = gameSettingsPresetOptions;
 
   constructor(private fb: FormBuilder) {
     this.serverForm = this.fb.group({
@@ -30,11 +32,11 @@ export class ServergamesettinggeneratorComponent {
       Secure: [true],
       ListOnSteam: [true],
       ListOnEOS: [true],
-      AutoSaveCount: [30, Validators.required],
+      AutoSaveCount: [30, [Validators.required,Validators.min(1),Validators.max(1000)]],
       AutoSaveInterval: [120, Validators.required],
       CompressSaveFiles: [true],
-      GameSettingsPreset: [GameDifficultyPreset.Normal],
-      GameDifficultyPreset: ['Normal'],
+      GameSettingsPreset: [""],
+      GameDifficultyPreset: [GameDifficultyPreset.Normal],
       AdminOnlyDebugEvents: [false],
       DisableDebugEvents: [false],
       API: this.fb.group({

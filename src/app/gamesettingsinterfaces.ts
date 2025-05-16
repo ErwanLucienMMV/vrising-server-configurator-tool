@@ -99,6 +99,7 @@
     TrioPvP_NoSiege = "TrioPvP_NoSiege",
     TrioPvP_WeekendSiege = "TrioPvP_WeekendSiege"
   }
+  export const gameSettingsPresetOptions = Object.entries(PresetName).map(([key, value])=> ({label:key, value}));
   
   export interface VampireStatModifiers {
     MaxHealthModifier: number;

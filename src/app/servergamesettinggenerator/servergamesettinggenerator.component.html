@@ -43,7 +43,15 @@
   
       <div class="col-md-6 mb-3">
         <label class="form-label">Game Settings Preset</label>
-        <input type="text" class="form-control" formControlName="GameSettingsPreset">
+        <select class="form-select" formControlName="GameSettingsPreset">
+          <option [value]="">Custom</option>
+          <option
+            *ngFor="let opt of presetName"
+            [value]="opt.value"
+          >
+            {{ opt.label }}
+          </option>
+        </select>
       </div>
       <div class="col-md-6 mb-3">
         <label class="form-label">Game Difficulty Preset</label>

@@ -269,8 +269,11 @@
     <input
       type="number"
       step="0.01"
-      formControlName="DropTableModifier_General" class="form-control"
+      formControlName="DropTableModifier_General"
+      min="0.25"
+      max="3" class="form-control" 
     />
+    <label>Value: From 0.25 to 3</label>
   </div>
 
     <div class="col-md-6">
@@ -278,8 +281,11 @@
     <input
       type="number"
       step="0.01"
+      min="0.25"
+      max="3"
       formControlName="DropTableModifier_StygianShards" class="form-control"
     />
+    <label>Value: From 0.25 to 3</label>
   </div>
 
     <div class="col-md-6">
@@ -287,8 +293,11 @@
     <input
       type="number"
       step="0.01"
+      min="0.25"
+      max="3"
       formControlName="DropTableModifier_Missions" class="form-control"
     />
+    <label>Value: From 0.25 to 3</label>
   </div>
 
     <div class="col-md-6">
@@ -296,8 +305,11 @@
     <input
       type="number"
       step="0.01"
+      min="0.25"
+      max="3"
       formControlName="MaterialYieldModifier_Global" class="form-control"
     />
+    <label>Value: From 0.25 to 3</label>
   </div>
 
     <div class="col-md-6">
@@ -305,8 +317,11 @@
     <input
       type="number"
       step="0.01"
+      min="0.25"
+      max="3"
       formControlName="BloodEssenceYieldModifier" class="form-control"
     />
+    <label>Value: From 0.25 to 3</label>
   </div>
 
     <div class="col-md-6">
@@ -314,18 +329,25 @@
     <input
       type="number"
       step="0.01"
+      min="0"
+      max="3"
       formControlName="PvPVampireRespawnModifier" class="form-control"
     />
+    <label>Value: From 0 to 3</label>
   </div>
 
     <div class="col-md-6">
     <h5>Clan Size</h5>
-    <input type="number" formControlName="ClanSize" class="form-control" />
+    <input type="number" formControlName="ClanSize" class="form-control" min="0"
+    max="50"/>
+    <label>Value: From 1 to 50</label>
   </div>
 
     <div class="col-md-6">
     <h5>Blood Drain Modifier</h5>
-    <input type="number" step="0.01" formControlName="BloodDrainModifier"  class="form-control"/>
+    <input type="number" step="0.01" formControlName="BloodDrainModifier"  min="0"
+    max="3" class="form-control"/>
+    <label>Value: From 0 to 3</label>
   </div>
 
     <div class="col-md-6">
@@ -333,8 +355,10 @@
     <input
       type="number"
       step="0.01"
-      formControlName="DurabilityDrainModifier" class="form-control"
+      formControlName="DurabilityDrainModifier" class="form-control" min="0"
+      max="3"
     />
+    <label>Value: From 0 to 3</label>
   </div>
 
     <div class="col-md-6">
@@ -342,8 +366,10 @@
     <input
       type="number"
       step="0.01"
-      formControlName="GarlicAreaStrengthModifier" class="form-control"
+      formControlName="GarlicAreaStrengthModifier" class="form-control" min="0"
+      max="3"
     />
+    <label>Value: From 0 to 3</label>
   </div>
 
     <div class="col-md-6">
@@ -351,18 +377,24 @@
     <input
       type="number"
       step="0.01"
-      formControlName="HolyAreaStrengthModifier" class="form-control"
+      formControlName="HolyAreaStrengthModifier" class="form-control" min="0"
+      max="3"
     />
+    <label>Value: From 0 to 3</label>
   </div>
 
     <div class="col-md-6">
     <h5>Silver Strength Modifier</h5>
-    <input type="number" step="0.01" formControlName="SilverStrengthModifier" class="form-control"/>
+    <input type="number" step="0.01" formControlName="SilverStrengthModifier" class="form-control" min="0"
+    max="3"/>
+    <label>Value: From 0 to 3</label>
   </div>
 
     <div class="col-md-6">
     <h5>Sun Damage Modifier</h5>
-    <input type="number" step="0.01" formControlName="SunDamageModifier" class="form-control"/>
+    <input type="number" step="0.01" formControlName="SunDamageModifier" class="form-control" min="0"
+    max="3"/>
+    <label>Value: From 0 to 3</label>
   </div>
 
     <div class="col-md-6">
@@ -370,8 +402,10 @@
     <input
       type="number"
       step="0.01"
-      formControlName="CastleDecayRateModifier" class="form-control"
+      formControlName="CastleDecayRateModifier" class="form-control" min="0"
+      max="3"
     />
+    <label>Value: From 0 to 3</label>
   </div>
 
     <div class="col-md-6">
@@ -379,74 +413,102 @@
     <input
       type="number"
       step="0.01"
-      formControlName="CastleBloodEssenceDrainModifier" class="form-control"
+      formControlName="CastleBloodEssenceDrainModifier" class="form-control" min="0"
+      max="3"
     />
+    <label>Value: From 0 to 3</label>
   </div>
 
     <div class="col-md-6">
     <h5>Castle Siege Timer</h5>
-    <input type="number" formControlName="CastleSiegeTimer" class="form-control"/>
+    <input type="number" formControlName="CastleSiegeTimer" class="form-control" min="60"
+    max="1800"/>
+    <label>Value: From 60 to 1800</label>
   </div>
 
     <div class="col-md-6">
     <h5>Castle Under Attack Timer</h5>
-    <input type="number" formControlName="CastleUnderAttackTimer" class="form-control"/>
+    <input type="number" formControlName="CastleUnderAttackTimer" class="form-control" min="0"
+    max="60"/>
+    <label>Value: From 0 to 60</label>
   </div>
 
     <div class="col-md-6">
     <h5>Castle Raid Timer</h5>
-    <input type="number" formControlName="CastleRaidTimer" class="form-control"/>
+    <input type="number" formControlName="CastleRaidTimer" class="form-control" min="60"
+    max="3600"/>
+    <label>Value: From 60 to 3600</label>
   </div>
 
     <div class="col-md-6">
     <h5>Castle Raid Protection Time</h5>
-    <input type="number" formControlName="CastleRaidProtectionTime" class="form-control"/>
+    <input type="number" formControlName="CastleRaidProtectionTime" class="form-control" min="0"
+    max="604800"/>
+    <label>Value: From 0 to 604800(7 days)</label>
   </div>
 
     <div class="col-md-6">
     <h5>Castle Exposed Free Claim Timer</h5>
-    <input type="number" formControlName="CastleExposedFreeClaimTimer" class="form-control"/>
+    <input type="number" formControlName="CastleExposedFreeClaimTimer" class="form-control" min="0"
+    max="3600"/>
+    <label>Value: From 0 to 3600</label>
   </div>
 
     <div class="col-md-6">
     <h5>Castle Relocation Cooldown</h5>
-    <input type="number" formControlName="CastleRelocationCooldown" class="form-control"/>
+    <input type="number" formControlName="CastleRelocationCooldown" class="form-control" min="0"
+    max="2592000"/>
+    <label>Value: From 0 to 2 592 000 (30 Days)</label>
   </div>
 
     <div class="col-md-6">
     <h5>Build Cost Modifier</h5>
-    <input type="number" step="0.01" formControlName="BuildCostModifier" class="form-control"/>
+    <input type="number" step="0.01" formControlName="BuildCostModifier" class="form-control" min="0"
+    max="3"/>
+    <label>Value: From 0 to 3</label>
   </div>
 
     <div class="col-md-6">
     <h5>Recipe Cost Modifier</h5>
-    <input type="number" step="0.01" formControlName="RecipeCostModifier" class="form-control"/>
+    <input type="number" step="0.01" formControlName="RecipeCostModifier" class="form-control" min="0"
+    max="3"/>
+    <label>Value: From 0 to 3</label>
   </div>
 
 
     <div class="col-md-6">
     <h5>Craft Rate Modifier</h5>
-    <input type="number" step="0.01" formControlName="CraftRateModifier" class="form-control"/>
+    <input type="number" step="0.01" formControlName="CraftRateModifier" class="form-control" min="0"
+    max="6"/>
+    <label>Value: From 0.25 to 6</label>
   </div>
 
     <div class="col-md-6">
     <h5>Research Cost Modifier</h5>
-    <input type="number" step="0.01" formControlName="ResearchCostModifier" class="form-control"/>
+    <input type="number" step="0.01" formControlName="ResearchCostModifier" class="form-control" min="0"
+    max="3"/>
+    <label>Value: From 0 to 3</label>
   </div>
 
     <div class="col-md-6">
     <h5>Refinement Cost Modifier</h5>
-    <input type="number" step="0.01" formControlName="RefinementCostModifier" class="form-control"/>
+    <input type="number" step="0.01" formControlName="RefinementCostModifier" class="form-control" min="0"
+    max="3"/>
+    <label>Value: From 0 to 3</label>
   </div>
 
     <div class="col-md-6">
     <h5>Refinement Rate Modifier</h5>
-    <input type="number" step="0.01" formControlName="RefinementRateModifier" class="form-control" />
+    <input type="number" step="0.01" formControlName="RefinementRateModifier" class="form-control" min="0.25"
+    max="6"/>
+    <label>Value: From 0.25 to 6</label>
   </div>
 
     <div class="col-md-6">
     <h5>Research Time Modifier</h5>
-    <input type="number" step="0.01" formControlName="ResearchTimeModifier" class="form-control" />
+    <input type="number" step="0.01" formControlName="ResearchTimeModifier" class="form-control" min="0"
+    max="6"/>
+    <label>Value: From 0 to 6 (unused)</label>
   </div>
 
     <div class="col-md-6">
@@ -454,8 +516,10 @@
     <input
       type="number"
       step="0.01"
-      formControlName="DismantleResourceModifier" class="form-control"
+      formControlName="DismantleResourceModifier" class="form-control" min="0"
+      max="1"
     />
+    <label>Value: From 0 to 1</label>
   </div>
 
   <div class="col-md-6">
@@ -463,14 +527,18 @@
     <input
       type="number"
       step="0.01"
-      formControlName="ServantConvertRateModifier" class="form-control"
+      formControlName="ServantConvertRateModifier" class="form-control" min="0.25"
+      max="6"
     />
   </div>
+  <label>Value: From 0.25 to 6</label>
 </div>
 
   <div class="col-md-6">
     <h5>Repair Cost Modifier</h5>
-    <input type="number" step="0.01" formControlName="RepairCostModifier" class="form-control"/>
+    <input type="number" step="0.01" formControlName="RepairCostModifier" class="form-control" min="0"
+    max="3"/>
+    <label>Value: From 0 to 3</label>
   </div>
 
     <div class="col-md-6">
@@ -479,8 +547,10 @@
       type="number"
       step="0.01"
       formControlName="Death_DurabilityFactorLoss"
-      class="form-control"
+      class="form-control" min="0"
+      max="1"
     />
+    <label>Value: From 0 to 1</label>
   </div>
 
     <div class="col-md-6">
@@ -489,8 +559,10 @@
       type="number"
       step="0.01"
       formControlName="Death_DurabilityLossFactorAsResources"
-      class="form-control"
+      class="form-control" min="0"
+      max="1"
     />
+    <label>Value: From 0 to 1 (100%)</label>
   </div>
 
     <div class="col-md-6">
@@ -520,8 +592,10 @@
       type="number"
       step="0.01"
       formControlName="SoulShard_DurabilityLossRate"
-      class="form-control"
+      class="form-control" min="0"
+      max="3"
     />
+    <label>Value: From 0 to 3</label>
   </div>
 </div>
   
@@ -562,14 +636,13 @@
             'PhysicalPowerModifier',
             'SpellPowerModifier',
             'ResourcePowerModifier',
-            'SiegePowerModifier',
-            'DamageReceivedModifier',
-            'ReviveCancelDelay'
           ]
         "
       >
         <label class="form-label">{{ key }}</label>
-        <input type="number" class="form-control" [formControlName]="key" />
+        <input type="number" class="form-control" [formControlName]="key" min="0.01"
+        max="10"/>
+        <label>From: 0.01 to 10</label>
       </div>
     </div>
   </div>
@@ -795,6 +868,7 @@
 
     <!-- Scaling Players -->
     <div class="row">
+      <h5>Incursions drop modifiers</h5>
       <div
         class="col-md-6 mb-3"
         *ngFor="
@@ -807,7 +881,7 @@
         "
       >
         <div [formGroupName]="group">
-          <h5 class="form-label col-md-12">{{ group }}</h5>
+          <h6 class="form-label col-md-12">{{ group }}</h6>
           <label>Points Modifier</label>
           <input
             type="number"
