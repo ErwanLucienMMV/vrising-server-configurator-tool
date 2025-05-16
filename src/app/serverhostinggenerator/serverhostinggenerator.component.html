@@ -721,7 +721,7 @@
         type="checkbox"
         id="{{ achievement.label }}"
         [value]="achievement.value"
-        [formControl]="getControl(i)"
+        [formControl]="getControlAchievement(i)"
       />
       <!-- Utilisation de la méthode getControl -->
       <label for="{{ achievement.label }}">{{ achievement.label }}</label>
@@ -735,7 +735,7 @@
         type="checkbox"
         id="{{ Research.label }}"
         [value]="Research.value"
-        [formControl]="getControl(i)"
+        [formControl]="getControlResearch(i)"
       />
       <label for="{{ Research.label }}">{{ Research.label }}</label>
     </div>

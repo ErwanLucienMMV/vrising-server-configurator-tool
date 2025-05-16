@@ -145,7 +145,7 @@ export class ServerhostinggeneratorComponent {
         )
       ),
       UnlockedResearchs: this.fb.array(
-        this.unlockedResearchOptions.map(() => new FormControl(false)) 
+        this.unlockedResearchOptions.map(unlockedResearchOptions => new FormControl(false)) 
       ), 
       GameTimeModifiers: this.fb.group({
         DayDurationInSeconds: [1080.0],
@@ -304,8 +304,16 @@ export class ServerhostinggeneratorComponent {
     return this.unlockedAchievementsControl.controls;
   }
 
-  getControl(index: number): FormControl {
+  getControlAchievement(index: number): FormControl {
     return this.unlockedAchievementsControl.at(index) as FormControl;
+  }
+
+  get UnlockedResearchsControl() {
+    return (this.form.get('UnlockedResearchs') as FormArray);
+  }
+
+  getControlResearch(index: number): FormControl {
+    return this.UnlockedResearchsControl.at(index) as FormControl;
   }
 
   appendResults(optionsValue: {label: string;value: string|UnlockedAchievements|UnlockedResearch}[], ArrayOfStatus:boolean [] ){
@@ -324,7 +332,8 @@ export class ServerhostinggeneratorComponent {
 
   onSubmit(): void {
     this.form.value.UnlockedAchievements = this.appendResults(this.unlockedAchievementsOptions,this.form.value.UnlockedAchievements);
-    this.form.value.UnlockedResearch = this.appendResults(this.unlockedResearchOptions, this.form.value.UnlockedResearchs); 
+    let unlockedResearchCorriged = this.appendResults(this.unlockedResearchOptions, this.form.value.UnlockedResearchs);
+    this.form.value.UnlockedResearchs = unlockedResearchCorriged; 
     if (this.form.valid) {
       alert('Copy and paste this in your ServerGameSettings.json:\n' + JSON.stringify(this.form.value, null, 2));
     }
