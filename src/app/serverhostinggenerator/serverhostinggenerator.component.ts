@@ -141,7 +141,7 @@ export class ServerhostinggeneratorComponent {
       Death_DurabilityLossFactorAsResources: new FormControl(0, [Validators.min(0), Validators.max(1)]),
       StarterEquipmentId: [0],
       StarterResourcesId: [0],
-      VBloodUnitSettings: [],  
+      VBloodUnitSettings: this.fb.array([]), 
       UnlockedAchievements: this.fb.array(
         this.unlockedAchievementsOptions.map(unlockedAchievementsOptions => 
           new FormControl(false) 
@@ -261,9 +261,9 @@ export class ServerhostinggeneratorComponent {
         RestockTimerModifier: [1.0]
       }),
       WarEventGameSettings: this.fb.group({
-        Interval: [WarEventInterval.Minimum],
-        MajorDuration: [WarEventDuration.Minimum],
-        MinorDuration: [WarEventDuration.Minimum],
+        Interval: ['Medium'],
+        MajorDuration: ['Short'],
+        MinorDuration: ['Short'],
         WeekdayTime: this.fb.group({
           StartHour: [0],
           StartMinute: [0],

@@ -272,8 +272,8 @@
     Maximum = '2 hours'
   }
 
-  export const warEventIntervalOptions = Object.entries(WarEventInterval).map(([key, value]) => ({ label: key, value }));
-  export const warEventDurationOptions = Object.entries(WarEventDuration).map(([key, value]) => ({ label: key, value }));
+  export const warEventIntervalOptions = Object.entries(WarEventInterval).map(([key, value]) => ({ label: value, value: key }));
+  export const warEventDurationOptions = Object.entries(WarEventDuration).map(([key, value]) => ({ label: value, value: key }));
 
   export enum StarterEquipmentId{
     None= 0,
