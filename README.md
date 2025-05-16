@@ -6,6 +6,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
+## Deploying the app through github pages CLI
+
+Run `ng deploy` to deploy the application to this repo's github pages using [Angular CLI ghpages](https://www.npmjs.com/package/angular-cli-ghpages), after a bit of struggle it should now be uploaded without problems, if not it's most likely due to the href that try to get the absolute path and messes up with windows
+
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
