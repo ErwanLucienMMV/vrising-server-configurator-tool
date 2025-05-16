@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogContent } from '@angular/material/dialog';
 import { GameSettings } from '../gamesettingsinterfaces';
 import { ServerHostSettings } from '../server-host-settings';
 import { JsonPipe } from '@angular/common';
@@ -7,7 +7,7 @@ import { JsonPipe } from '@angular/common';
 @Component({
   selector: 'app-data-displayer',
   standalone: true,
-  imports: [JsonPipe],
+  imports: [JsonPipe, MatDialogContent],
   templateUrl: './data-displayer.component.html',
   styleUrl: './data-displayer.component.css'
 })
