@@ -1,5 +1,5 @@
 <form [formGroup]="serverForm" (ngSubmit)="onSubmit()" class="container mt-5 mb-5">
-    <h5>Server and connection settings</h5>
+    <h1>Server and connection settings</h1>
     <div class="row">
       <div class="col-md-6 mb-3">
         <label class="form-label">Server Name</label>
@@ -106,7 +106,7 @@
     <hr>
   
     <!-- API Group -->
-    <h5>API Settings</h5>
+    <h1>API Settings</h1>
     <div formGroupName="API" class="mb-3 w-100">
       <div class="form-check">
         <input class="form-check-input" type="checkbox" formControlName="Enabled" id="apiEnabledCheck">
@@ -115,7 +115,7 @@
     </div>
   
     <!-- Rcon Group -->
-    <h5>Rcon Settings</h5>
+    <h1>Rcon Settings</h1>
     <div formGroupName="Rcon" class="w-100">
       <div class="col-md-5 mb-3 form-check">
         <input class="form-check-input" type="checkbox" formControlName="Enabled" id="rconEnabledCheck">

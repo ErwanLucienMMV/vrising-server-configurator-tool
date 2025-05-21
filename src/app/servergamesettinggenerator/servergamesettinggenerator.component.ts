@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule, NgFor } from '@angular/common';
 import { GameDifficultyPreset, GameDifficultyOptions } from '../game-difficulty-preset';
@@ -6,6 +6,7 @@ import { gameSettingsPresetOptions } from '../gamesettingsinterfaces';
 import { MatDialog } from '@angular/material/dialog';
 import { DataDisplayerComponent } from '../data-displayer/data-displayer.component';
 import { ServerHostSettings } from '../server-host-settings';
+import { SeoService } from '../seo.service';
 
 @Component({
   selector: 'app-servergamesettinggenerator',
@@ -21,7 +22,7 @@ export class ServergamesettinggeneratorComponent {
   difficultyOptions = GameDifficultyOptions;
   presetName = gameSettingsPresetOptions;
 
-  constructor(private fb: FormBuilder, private dialogRef : MatDialog) {
+  constructor(private fb: FormBuilder, private dialogRef : MatDialog, private seo: SeoService) {
     this.serverForm = this.fb.group({
       Name: ['ErwanMMV-MyVrisingServerName', Validators.required],
       Description: ['This is an awesome description of my server'],
@@ -51,6 +52,12 @@ export class ServergamesettinggeneratorComponent {
         Password: ['']
       })
     });
+  }
+
+  ngOnInit(): void{
+    this.seo.updateMeta(
+      'Vrising server configuration generator',
+      `A tool to help you out setting up your dedicated server's config file`);
   }
 
   onSubmit(): void {

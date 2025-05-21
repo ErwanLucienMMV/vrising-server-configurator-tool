@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControlName, ReactiveFormsModule, FormControl, FormArray, Validators } from '@angular/forms';
 import { NgFor, NgForOf } from '@angular/common';
 import {
@@ -39,6 +39,7 @@ import {
  import { NgSelectModule } from '@ng-select/ng-select';
 import { MatDialog } from '@angular/material/dialog';
 import { DataDisplayerComponent } from '../data-displayer/data-displayer.component';
+import { SeoService } from '../seo.service';
 
 @Component({
   selector: 'app-serverhostinggenerator',
@@ -66,10 +67,13 @@ export class ServerhostinggeneratorComponent {
   starterEquipementIdOptions = StarterEquipmentIdOptions;
   starterResourceIdOptions = StarterResourceIdOptions;
 
-  constructor(private fb: FormBuilder, private dialogRef : MatDialog) {
+  constructor(private fb: FormBuilder, private dialogRef : MatDialog, private seo: SeoService) {
   }
 
   ngOnInit(): void {
+    this.seo.updateMeta(
+      'Vrising Game Settings generator',
+      'A tool to help you out setting up your game settings.json file');
     this.form = this.fb.group({
       GameDifficulty: [0],
       GameModeType: ["PvP"],

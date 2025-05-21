@@ -4,7 +4,7 @@
   <div class="row justify-content-center align-items-stretch mt-3">
     <div class="col-md-6 mb-3">
       <div class="d-flex flex-column h-100">
-        <h5>Game Difficulty</h5>
+        <h1>Game Difficulty</h1>
         <label class="form-text mb-2">
           Relaxed is the "Easy" version and Hard is the name for "Brutal", in
           brutal VBlood will be stronger and have some more attacks patterns
@@ -19,7 +19,7 @@
   
     <div class="col-md-6 mb-3">
       <div class="d-flex flex-column h-100">
-        <h5>Game Mode</h5>
+        <h1>Game Mode</h1>
         <label class="form-text mb-2">
           Decide if you can hit others players (PvP) or not (PvE)
         </label>
@@ -34,7 +34,7 @@
 
   <div  class="row">
     <div class="col-md-6 mb-3">
-      <h5>Castle Damage Mode</h5>
+      <h1>Castle Damage Mode</h1>
       <label class="mt-1"
         >Decide if raid are 24/7, limited to a period of time, or not a thing at
         all
@@ -51,7 +51,7 @@
     </div>
 
     <div class="col-md-6 mb-3">
-      <h5>Siege Weapon Health</h5>
+      <h1>Siege Weapon Health</h1>
       <label class="mt-1"
         >Define the HPs of siege golem, default being Normal</label
       >
@@ -66,7 +66,7 @@
     </div>
 
     <div class="col-md-6 mb-3">
-      <h5>Player Damage Mode</h5>
+      <h1>Player Damage Mode</h1>
       <label class="mt-1"
         >The same way that with raids, define if you can pvp 24/7, at certain
         times or not at all (pretty much like Game Mode: PvE)</label
@@ -79,7 +79,7 @@
     </div>
 
     <div class="col-md-6 mb-3">
-      <h5>Castle Heart Damage Mode</h5>
+      <h1>Castle Heart Damage Mode</h1>
       <label class="mt-1"
         >Define if you can destroy only blood essence depletted castle, destroy
         them with a key, or steal them with a key</label
@@ -95,7 +95,7 @@
     </div>
 
     <div class="col-md-6 mb-3">
-      <h5>PvP Protection Mode</h5>
+      <h1>PvP Protection Mode</h1>
       <label class="mt-1"
         >The time during which new players will be protected from PvP, up to 2
         hours in game</label
@@ -111,7 +111,7 @@
     </div>
 
     <div class="col-md-6 mb-3">
-      <h5>Death Container Permission</h5>
+      <h1>Death Container Permission</h1>
       <label class="mt-1"
         >Define who can access the death container of a player</label
       >
@@ -126,7 +126,7 @@
     </div>
 
     <div class="col-md-6 mb-3">
-      <h5>Relic Spawn Type</h5>
+      <h1>Relic Spawn Type</h1>
       <label class="mt-1">Plentiful means that more than one shard of each soul can exist at the same time</label>
       <select formControlName="RelicSpawnType" class="form-control">
         <option *ngFor="let opt of relicSpawnTypeOptions" [value]="opt.value">
@@ -212,7 +212,7 @@
 
     <div class="row justify-content-center align-items-stretch mt-3">
     <div class="col-md-6">
-    <h5>Inactivity Kill Timer Max Item Level</h5>
+    <h1>Inactivity Kill Timer Max Item Level</h1>
     <label>Define how much time before killing someone whose equipement level is equal to InactivityKill Timer Max Item Level</label>
     <input
       type="number"
@@ -224,7 +224,7 @@
   </div>
 
     <div class="col-md-6">
-    <h5>Starting Progression Level</h5>
+    <h1>Starting Progression Level</h1>
     <label> Defines which level new
       connected players start
       at (progression wise), meaning that their level will be (Start Progression Level + Equipement level)</label>
@@ -240,7 +240,7 @@
     <input type="number" formControlName="DisableDisconnectedDeadTimer" />-->
 
     <div class="col-md-6">
-    <h5>Disconnected Sun Immunity Time</h5>
+    <h1>Disconnected Sun Immunity Time</h1>
     <label>Define how long after disconnection players are immune to sun</label>
     <input
       type="number"
@@ -252,7 +252,7 @@
   </div>
 
     <div class="col-md-6">
-    <h5>Inventory Stacks Modifier</h5>
+    <h1>Inventory Stacks Modifier</h1>
     <label>Ratio of how much every slot can contain BaseNumber * StacksModifier</label>
     <input
       type="number"
@@ -265,7 +265,7 @@
   </div>
 
     <div class="col-md-6">
-    <h5>Drop Table Modifier General</h5>
+    <h1>Drop Table Modifier General</h1>
     <input
       type="number"
       step="0.01"
@@ -277,7 +277,7 @@
   </div>
 
     <div class="col-md-6">
-    <h5>Drop Table Modifier Stygian Shards</h5>
+    <h1>Drop Table Modifier Stygian Shards</h1>
     <input
       type="number"
       step="0.01"
@@ -289,7 +289,7 @@
   </div>
 
     <div class="col-md-6">
-    <h5>Drop Table Modifier Missions</h5>
+    <h1>Drop Table Modifier Missions</h1>
     <input
       type="number"
       step="0.01"
@@ -301,7 +301,7 @@
   </div>
 
     <div class="col-md-6">
-    <h5>Material Yield Modifier Global</h5>
+    <h1>Material Yield Modifier Global</h1>
     <input
       type="number"
       step="0.01"
@@ -313,7 +313,7 @@
   </div>
 
     <div class="col-md-6">
-    <h5>Blood Essence Yield Modifier</h5>
+    <h1>Blood Essence Yield Modifier</h1>
     <input
       type="number"
       step="0.01"
@@ -325,7 +325,7 @@
   </div>
 
     <div class="col-md-6">
-    <h5>PvP Vampire Respawn Modifier</h5>
+    <h1>PvP Vampire Respawn Modifier</h1>
     <input
       type="number"
       step="0.01"
@@ -337,21 +337,21 @@
   </div>
 
     <div class="col-md-6">
-    <h5>Clan Size</h5>
+    <h1>Clan Size</h1>
     <input type="number" formControlName="ClanSize" class="form-control" min="0"
     max="50"/>
     <label>Value: From 1 to 50</label>
   </div>
 
     <div class="col-md-6">
-    <h5>Blood Drain Modifier</h5>
+    <h1>Blood Drain Modifier</h1>
     <input type="number" step="0.01" formControlName="BloodDrainModifier"  min="0"
     max="3" class="form-control"/>
     <label>Value: From 0 to 3</label>
   </div>
 
     <div class="col-md-6">
-    <h5>Durability Drain Modifier</h5>
+    <h1>Durability Drain Modifier</h1>
     <input
       type="number"
       step="0.01"
@@ -362,7 +362,7 @@
   </div>
 
     <div class="col-md-6">
-    <h5>Garlic Area Strength Modifier</h5>
+    <h1>Garlic Area Strength Modifier</h1>
     <input
       type="number"
       step="0.01"
@@ -373,7 +373,7 @@
   </div>
 
     <div class="col-md-6">
-    <h5>Holy Area Strength Modifier</h5>
+    <h1>Holy Area Strength Modifier</h1>
     <input
       type="number"
       step="0.01"
@@ -384,21 +384,21 @@
   </div>
 
     <div class="col-md-6">
-    <h5>Silver Strength Modifier</h5>
+    <h1>Silver Strength Modifier</h1>
     <input type="number" step="0.01" formControlName="SilverStrengthModifier" class="form-control" min="0"
     max="3"/>
     <label>Value: From 0 to 3</label>
   </div>
 
     <div class="col-md-6">
-    <h5>Sun Damage Modifier</h5>
+    <h1>Sun Damage Modifier</h1>
     <input type="number" step="0.01" formControlName="SunDamageModifier" class="form-control" min="0"
     max="3"/>
     <label>Value: From 0 to 3</label>
   </div>
 
     <div class="col-md-6">
-    <h5>Castle Decay Rate Modifier</h5>
+    <h1>Castle Decay Rate Modifier</h1>
     <input
       type="number"
       step="0.01"
@@ -409,7 +409,7 @@
   </div>
 
     <div class="col-md-6">
-    <h5>Castle Blood Essence Drain Modifier</h5>
+    <h1>Castle Blood Essence Drain Modifier</h1>
     <input
       type="number"
       step="0.01"
@@ -420,56 +420,56 @@
   </div>
 
     <div class="col-md-6">
-    <h5>Castle Siege Timer</h5>
+    <h1>Castle Siege Timer</h1>
     <input type="number" formControlName="CastleSiegeTimer" class="form-control" min="60"
     max="1800"/>
     <label>Value: From 60 to 1800</label>
   </div>
 
     <div class="col-md-6">
-    <h5>Castle Under Attack Timer</h5>
+    <h1>Castle Under Attack Timer</h1>
     <input type="number" formControlName="CastleUnderAttackTimer" class="form-control" min="0"
     max="60"/>
     <label>Value: From 0 to 60</label>
   </div>
 
     <div class="col-md-6">
-    <h5>Castle Raid Timer</h5>
+    <h1>Castle Raid Timer</h1>
     <input type="number" formControlName="CastleRaidTimer" class="form-control" min="60"
     max="3600"/>
     <label>Value: From 60 to 3600</label>
   </div>
 
     <div class="col-md-6">
-    <h5>Castle Raid Protection Time</h5>
+    <h1>Castle Raid Protection Time</h1>
     <input type="number" formControlName="CastleRaidProtectionTime" class="form-control" min="0"
     max="604800"/>
     <label>Value: From 0 to 604800(7 days)</label>
   </div>
 
     <div class="col-md-6">
-    <h5>Castle Exposed Free Claim Timer</h5>
+    <h1>Castle Exposed Free Claim Timer</h1>
     <input type="number" formControlName="CastleExposedFreeClaimTimer" class="form-control" min="0"
     max="3600"/>
     <label>Value: From 0 to 3600</label>
   </div>
 
     <div class="col-md-6">
-    <h5>Castle Relocation Cooldown</h5>
+    <h1>Castle Relocation Cooldown</h1>
     <input type="number" formControlName="CastleRelocationCooldown" class="form-control" min="0"
     max="2592000"/>
     <label>Value: From 0 to 2 592 000 (30 Days)</label>
   </div>
 
     <div class="col-md-6">
-    <h5>Build Cost Modifier</h5>
+    <h1>Build Cost Modifier</h1>
     <input type="number" step="0.01" formControlName="BuildCostModifier" class="form-control" min="0"
     max="3"/>
     <label>Value: From 0 to 3</label>
   </div>
 
     <div class="col-md-6">
-    <h5>Recipe Cost Modifier</h5>
+    <h1>Recipe Cost Modifier</h1>
     <input type="number" step="0.01" formControlName="RecipeCostModifier" class="form-control" min="0"
     max="3"/>
     <label>Value: From 0 to 3</label>
@@ -477,42 +477,42 @@
 
 
     <div class="col-md-6">
-    <h5>Craft Rate Modifier</h5>
+    <h1>Craft Rate Modifier</h1>
     <input type="number" step="0.01" formControlName="CraftRateModifier" class="form-control" min="0"
     max="6"/>
     <label>Value: From 0.25 to 6</label>
   </div>
 
     <div class="col-md-6">
-    <h5>Research Cost Modifier</h5>
+    <h1>Research Cost Modifier</h1>
     <input type="number" step="0.01" formControlName="ResearchCostModifier" class="form-control" min="0"
     max="3"/>
     <label>Value: From 0 to 3</label>
   </div>
 
     <div class="col-md-6">
-    <h5>Refinement Cost Modifier</h5>
+    <h1>Refinement Cost Modifier</h1>
     <input type="number" step="0.01" formControlName="RefinementCostModifier" class="form-control" min="0"
     max="3"/>
     <label>Value: From 0 to 3</label>
   </div>
 
     <div class="col-md-6">
-    <h5>Refinement Rate Modifier</h5>
+    <h1>Refinement Rate Modifier</h1>
     <input type="number" step="0.01" formControlName="RefinementRateModifier" class="form-control" min="0.25"
     max="6"/>
     <label>Value: From 0.25 to 6</label>
   </div>
 
     <div class="col-md-6">
-    <h5>Research Time Modifier</h5>
+    <h1>Research Time Modifier</h1>
     <input type="number" step="0.01" formControlName="ResearchTimeModifier" class="form-control" min="0"
     max="6"/>
     <label>Value: From 0 to 6 (unused)</label>
   </div>
 
     <div class="col-md-6">
-    <h5>Dismantle Resource Modifier</h5>
+    <h1>Dismantle Resource Modifier</h1>
     <input
       type="number"
       step="0.01"
@@ -523,7 +523,7 @@
   </div>
 
   <div class="col-md-6">
-    <h5>Servant Convert Rate Modifier</h5>
+    <h1>Servant Convert Rate Modifier</h1>
     <input
       type="number"
       step="0.01"
@@ -536,14 +536,14 @@
 </div>
 
   <div class="col-md-6">
-    <h5>Repair Cost Modifier</h5>
+    <h1>Repair Cost Modifier</h1>
     <input type="number" step="0.01" formControlName="RepairCostModifier" class="form-control" min="0"
     max="3"/>
     <label>Value: From 0 to 3</label>
   </div>
 
     <div class="col-md-6">
-    <h5>Death Durability Factor Loss</h5>
+    <h1>Death Durability Factor Loss</h1>
     <input
       type="number"
       step="0.01"
@@ -555,7 +555,7 @@
   </div>
 
     <div class="col-md-6">
-    <h5>Death Durability Loss Factor As Resources</h5>
+    <h1>Death Durability Loss Factor As Resources</h1>
     <input
       type="number"
       step="0.01"
@@ -567,7 +567,7 @@
   </div>
 
     <div class="col-md-6">
-    <h5>Starter Equipment Id</h5>
+    <h1>Starter Equipment Id</h1>
     <select formControlName="StarterEquipmentId" class="form-select">
       <option
         *ngFor="let starterEquipement of starterEquipementIdOptions"
@@ -579,7 +579,7 @@
   </div>
 
     <div class="col-md-6">
-    <h5>Starter Resources Id</h5>
+    <h1>Starter Resources Id</h1>
     <select formControlName="StarterEquipmentId" class="form-select">
       <option *ngFor="let starterResource of starterResourceIdOptions" [value]="starterResource.value">
         {{ starterResource.label }}
@@ -588,7 +588,7 @@
   </div>
 
     <div class="col-md-6">
-    <h5>SoulShard Durability Loss Rate</h5>
+    <h1>SoulShard Durability Loss Rate</h1>
     <input
       type="number"
       step="0.01"
@@ -603,7 +603,7 @@
 
   
   <div formGroupName="GameTimeModifiers" class="mb-4">
-    <h5>Game Time Modifiers</h5>
+    <h1>Game Time Modifiers</h1>
     <div class="row">
       <div
         class="col-md-6 mb-3"
@@ -627,7 +627,7 @@
   </div>
 
   <div formGroupName="VampireStatModifiers" class="mb-4">
-    <h5>Vampire Stat Modifiers</h5>
+    <h1>Vampire Stat Modifiers</h1>
     <div class="row">
       <div
         class="col-md-6 mb-3"
@@ -649,7 +649,7 @@
   </div>
 
   <div formGroupName="UnitStatModifiers_Global" class="mb-4">
-    <h5>Unit Stat Modifiers - Global</h5>
+    <h1>Unit Stat Modifiers - Global</h1>
     <div class="row">
       <div
         class="col-md-6 mb-3"
@@ -664,7 +664,7 @@
   </div>
 
   <div formGroupName="UnitStatModifiers_VBlood" class="mb-4">
-    <h5>Unit Stat Modifiers - VBlood</h5>
+    <h1>Unit Stat Modifiers - VBlood</h1>
     <div class="row">
       <div
         class="col-md-6 mb-3"
@@ -679,7 +679,7 @@
   </div>
 
   <div formGroupName="EquipmentStatModifiers_Global" class="mb-4">
-    <h5>Equipment Stat Modifiers - Global</h5>
+    <h1>Equipment Stat Modifiers - Global</h1>
     <div class="row">
       <div
         class="col-md-6 mb-3"
@@ -701,7 +701,7 @@
   </div>
 
   <div formGroupName="TraderModifiers" class="mb-4">
-    <h5>Trader Modifiers</h5>
+    <h1>Trader Modifiers</h1>
     <div class="row">
       <div
         class="col-md-6 mb-3"
@@ -743,7 +743,7 @@
   </div>
 
   <div formGroupName="VBloodUnitSettings" class="mb-4">
-    <h5>VBlood Unit Settings</h5>
+    <h1>VBlood Unit Settings</h1>
     <p>
       Vblood Unit Settings aren't handled so far, please refer to the
       <a
@@ -755,7 +755,7 @@
   </div>
 
   <div formGroupName="WarEventGameSettings" class="mb-4">
-    <h5>War Event Game Settings</h5>
+    <h1>War Event Game Settings</h1>
     <div class="row">
       <!-- Interval -->
       <div class="col-md-6 mb-3">
@@ -869,7 +869,7 @@
 
     <!-- Scaling Players -->
     <div class="row">
-      <h5>Incursions drop modifiers</h5>
+      <h1>Incursions drop modifiers</h1>
       <div
         class="col-md-6 mb-3"
         *ngFor="

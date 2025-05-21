@@ -2,6 +2,10 @@ h1{
     color: #D90B31;
     font-family: 'NocturneSerif';
 }
+
+h1{
+    font-size: 1.25rem;
+}
 .card {
     transition: transform 0.2s ease-in-out;
 }

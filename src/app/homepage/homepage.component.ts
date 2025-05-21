@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { SeoService } from '../seo.service';
 
 @Component({
   selector: 'app-homepage',
@@ -10,4 +11,12 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 })
 export class HomepageComponent {
 
+  constructor(private seo:SeoService){
+
+  }
+  ngOnInit(): void{
+    this.seo.updateMeta(
+      'Vrising server configuration generator',
+      `A tool to help you out setting up your dedicated server's config file`);
+  }
 }
