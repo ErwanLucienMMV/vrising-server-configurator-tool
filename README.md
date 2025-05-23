@@ -1,3 +1,15 @@
+# Vrising servers configurator tool
+
+This is a little project of mine helping to create configs files for [Vrising](https://store.steampowered.com/app/1604030/V_Rising/) without any issues, if you ever need it [click here](https://erwanlucienmmv.github.io/vrising-server-configurator-tool/)
+
+I've fought quite a bit with angular about it but it now has: Lazy loading, decent SEO optimizations and accessibility:  
+
+-[On Pc: 100 performances, 100 accessibility, 100 good practices, 100 SEO](https://pagespeed.web.dev/analysis/https-erwanlucienmmv-github-io-vrising-server-configurator-tool/mni7q4d0nj?hl=fr&form_factor=desktop)  
+
+
+-[On smartphone: responsive content so no issues abt that: 97 performances, 100 accesibility 100 good practices, 100 SEO](https://pagespeed.web.dev/analysis/https-erwanlucienmmv-github-io-vrising-server-configurator-tool/mni7q4d0nj?hl=fr&form_factor=mobile)  
+
+
 # VrisingServerConfiguratorTool
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.1.
